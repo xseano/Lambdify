@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="resources/img/lambdify.png" rel="shortcut icon">
+	<meta content="#ffffff" name="theme-color">
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="author">
+	<title>Lambdify</title>
+	<link href="resources/css/bootstrap.css" rel="stylesheet">
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/custom.css" rel="stylesheet">
+	<link href=
+	"http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+	<script src=
+	"https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+	</script>
+	<script src=
+	"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
+</head>
+<body id="home">
+	<div class=
+	"container navbar navbar-default navbar-fixed-top navbar-transparent">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-target=".navbar-responsive-collapse"
+			data-toggle="collapse" type="button"><span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span></button>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="index.html"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="dashboard.html"><i class="fa fa-group"></i> Dashboard</a>
+				</li>
+				<li>
+					<a href="add.html"><i class="fa fa-group"></i> Add ToDo</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li></li>
+				<li class="dropdown">
+					<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
+					data-toggle="dropdown" href="#" role="button"><i class=
+					"fa fa-user"></i> Links</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="documentation.html"><i class="fa fa-camera"></i>
+							Documentation</a>
+						</li>
+						<li>
+							<a href="{githubRepoLink}"><i class="fa fa-pencil"></i> Github
+							Repository</a>
+						</li>
+						<li>
+							<a href="index.html"><i class="fa fa-home"></i> Home</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="header container"></div>
+	<div align="center">
+		<div class="container white" style="margin-bottom: 50px;">
+			<br>
+			<div class="row">
+				<div class="text-center">
+					<div class="col-md-12">
+						<div class="text-center">
+							<br>
+							<center>
+								<ul class="media-list"></ul>
+							</center>
+						</div>
+						<ul class="media-list">
+							<li class="media">
+								<div class="media-body">
+									<h4 class="media-heading"><u id="newsTitle"></u></h4>
+									<h5 id="newsDT"></h5>
+									<p id="newsMessage"></p>
+								</div>
+							</li>
+						</ul>
+						<script charset="utf-8" src="./resources/js/news.js">
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

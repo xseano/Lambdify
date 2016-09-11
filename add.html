@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<link href="resources/img/lambdify.png" rel="shortcut icon">
+	<meta content="#ffffff" name="theme-color">
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="author">
+
+	<title>Lambdify ~ Add ToDo</title>
+	<link href="resources/css/bootstrap.css" rel="stylesheet">
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/custom.css" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+	</script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
+</head>
+
+<body id="home">
+	<div class="container navbar navbar-default navbar-fixed-top navbar-transparent">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+		</div>
+
+
+		<div class="navbar-collapse collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				
+				<li>
+					<a href="index.html"><i class="fa fa-home"></i> Home</a>
+				</li>
+
+				<li>
+					<a href="dashboard.html"><i class="fa fa-group"></i> Dashboard</a>
+				</li>
+
+			</ul>
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+				</li>
+
+
+				<li class="dropdown">
+					<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fa fa-user"></i> Links</a>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a href="documentation.html"><i class="fa fa-camera"></i> Documentation</a>
+						</li>
+
+
+						<li>
+							<a href="{githubRepoLink}"><i class="fa fa-pencil"></i> Github Repository</a>
+						</li>
+
+
+						<li>
+							<a href="index.html"><i class="fa fa-home"></i> Home</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="header container">
+	</div>
+
+
+	<div align="center">
+		<div class="container white" style="margin-bottom: 50px;">
+			<br>
+			<script src="./resources/js/wallAdd.js" charset="utf-8"></script>
+
+
+			<div class="well">
+				<center id="wallMxsAdd">
+					
+				</center>
+			</div>
+
+
+			<div class="row">
+				<div class="text-center">
+					<div class="col-md-12">
+						<div class="text-center">
+							<br>
+
+
+							<center>
+								<ul class="media-list">
+								</ul>
+							</center>
+						</div>
+
+
+						<div class="media-body">
+							<div class="col-md-12" id="test">
+								<div id="error">
+								</div>
+
+
+								<div id="success">
+								</div>
+
+
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										Add some todos!
+									</div>
+
+
+									<div class="panel-body">
+										<center>
+											<br>
+											<br>
+
+
+											<form>
+												<label>List name:</label> <input class="form-control" id="listName" name="listName" placeholder="Monday - List" type="text"><br>
+												<br>
+												<label>Enter the todo title:</label> <input class="form-control" id="todoTitle" name="todoTitle" placeholder="Go to Sarah's House" type="text"><br>
+												<br>
+												<label>Enter the todo description:</label> <input class="form-control" id="todoDesc" name="todoDesc" placeholder="Wish her Happy Birthday" type="text"><br>
+												<br>
+
+												<div class="form-group">
+													<input class="btn btn-default" id="send" name="submit" onclick="POST()" type="submit" value="Create!">
+												</div>
+												
+											</form>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script charset="utf-8" src="./resources/js/post.js">
+	</script>
+</body>
+</html>
