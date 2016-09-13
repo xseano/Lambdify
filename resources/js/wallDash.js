@@ -5,18 +5,19 @@ var asyncOption = true;
 $iλ.onreadystatechange = function() {
   if (this.readyState == 4) {
     var parsData = JSON.parse(this.responseText);
-    process(parsData);
+    addNews(parsData);
     console.log(parsData);
   }
 }
 $iλ.open(reqProto, newsLink, asyncOption);
 $iλ.send();
 
-function process(parsedData) {
-  var data = parsedData;
-  var fieldName = Object.getOwnPropertyNames(parsedData);
+function addNews(datata) {
+  var data = datata;
+  var fieldName = Object.getOwnPropertyNames(datata);
   var message = data.msg;
   var newsMsgDashiλ = document.getElementById("wallMxsDash");
   var newsMsgDashTextNodeiλ = document.createTextNode(message);
   newsMsgDashiλ.appendChild(newsMsgDashTextNodeiλ);
+  
 }
