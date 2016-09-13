@@ -11,32 +11,43 @@ function POST() {
 		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd";
 		var reqMethod = "POST";
 		var async = true;
-		var data = {
-			todos:{ 
-				listName:[
-				
-				{
-					title: todoTitle, descrp: todoDesc
-					
-					}
-				
-				]
-				
-			}
-		};
+		var testArray = {
+			
+			
+			title: todoTitle, 
+			descrp: todoDesc
+			
+			};
+		var testJ = JSON.stringify(testArray);
+		console.log(testJ);
+		var jointest = JSON.parse(testJ);
+		/*
+		var dataContent;
+		var data = [{dataContent}];
+		dataContent["id"] = 44;
+		dataContent["title"] = todoTitle;
+		dataContent["descrp"] = todoDesc;
 		var string = JSON.stringify(data);
 		console.log(string);
+		*/
 		xhttp.onreadystatechange = function() {
-			if (xhttp.readyState == 4 && xhttp.status == 200) {
+			if (xhttp.readyState == 4) {
 				console.log(xhttp.responseText);
 			}
 		}
 		xhttp.open(reqMethod, link, async);
 		xhttp.setRequestHeader("Content-type", "application/json");
-		xhttp.send(string);
+		xhttp.send({
+			
+				"yo": [jointest]
+			
+		
+		});
+		console.log(jointest);
+		console.log(({"yo": [jointest]}));
 		document.getElementById("success").className = "alert alert-success";
 		document.getElementById("send").setAttribute("type", "button");
-		document.getElementById('success').innerHTML = "<strong>Success!<\/strong> You sent the username: and email: !";
+		document.getElementById('success').innerHTML = "<strong>Success!</strong> You sent the username: and email: !";
 
 	}
 }

@@ -12,7 +12,7 @@ if (linkAroni == "") {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
             var parsData = JSON.parse(this.responseText);
-            console.log(parsData);
+            ////console.log(this.responseText);
             process(parsData);
         }
     };
@@ -22,18 +22,18 @@ if (linkAroni == "") {
 
 function process(parsedData) {
         var data = parsedData;
-        console.log(data);
+        ////console.log(data);
         /*
         if (JSON.stringify(data).startsWith("[")) {
                 var da = data;
-                console.log(da);
+                ////console.log(da);
                 var dataLength = da.length;
                 for (i = 0; i < dataLength; i++) {
                         var nex = da[i];
-                        console.log(nex);
+                        ////console.log(nex);
                 }
                 var fieldName = Object.getOwnPropertyNames(nex);
-                console.log(fieldName);
+                ////console.log(fieldName);
                 var fieldLength = fieldName.length;
                 var i;
                 var j;
@@ -67,7 +67,7 @@ function process(parsedData) {
                                 } else {
                                         htmlOutput += "<td>" + nex[fieldn] + "</td>";
                                 }
-                                console.log(nex[fieldn]);
+                                ////console.log(nex[fieldn]);
                         }
                         htmlOutput += "</tr>";
                 }
@@ -82,57 +82,63 @@ function process(parsedData) {
                  } else if (JSON.stringify(data).startsWith("{")) {
                         */
         var da = [data];
-        console.log(da);
+        console.log(da[0]);
         var dataLength = da.length;
         for (i = 0; i < dataLength; i++) {
             var nex = da[i];
-            console.log(nex);
+            ////console.log(nex);
         }
         // var todoObjects = nex.todos;
         //var parsTodoObjects = JSON.parse(todoObjects);
         var fieldName = Object.getOwnPropertyNames(nex);
-        //console.log(todoObjects);
+        ////console.log(fieldName);
         var fieldLength = fieldName.length;
         var i;
         var j;
         var k;
         var y;
+        var todoListNames = Object.keys(data).filter(function (nameee) {
+            return nameee.indexOf("todos") === 0;
+        });
+        var todoListNameLength = todoListNames.length;
+        ////console.log(todoListNames.length);
         var htmlOutput = "<thead><tr>";
         var userName = fieldName[4];
         var todoPos = fieldName[2];
-        var firstListObject = nex.todos.list1[0];
-        //console.log(Object.getOwnPropertyNames(firstListObject));
-        var todoPropNames = Object.getOwnPropertyNames(nex.todos);
+        var firstListObject = nex.todos_list2[0];
+        ////console.log(firstListObject);
+        //////console.log(Object.getOwnPropertyNames(firstListObject));
+        var todoPropNames = todoListNames;
+        ////console.log(todoPropNames);
         
-        var todoPropNamesLen = todoPropNames.length;
-        console.log(todoPropNames);
+        var todoPropNamesLen = todoListNameLength;
+        ////console.log(todoPropNames);
         var todoListHeader = Object.getOwnPropertyNames(firstListObject);
+        
         var todoListHeaderLength = todoListHeader.length;
+        ////console.log(todoListHeaderLength);
         for (k = 0; k < todoListHeaderLength; k++) {
             var fieldNamRaw = todoListHeader[k];
             var fieldnam = switchFieldName(fieldNamRaw);
+            ////console.log(fieldnam);
             htmlOutput += "<th>" + fieldnam + "<\/th>";
         }
         
         htmlOutput += "<\/tr><\/thead><tbody>";
         for (i = 0; i < dataLength; i++) {
-            var nex1 = da[i];
-            var nex = nex1.todos;
+            var nex = da[i];
+            ////console.log(nex);
             var num = 0;
-            console.log(nex.todos);
             htmlOutput += "<tr>";
             for (j = 0; j < todoPropNamesLen; j++) {
                 var fieldn = todoPropNames[j];
-                console.log(todoPropNames);
+               // //console.log(fieldn);
                 num++;
+                //var fieldnr = fieldn.split("todos_");
+                //var fieldn = fieldnr[j];
+                console.log(fieldn);
                 createTabz(fieldn, todoPropNamesLen, nex, htmlOutput, fieldnam);
                 var o;
-                /*
-                 document.getElementById("success").className =
-                 "alert alert-success fade in";
-                 document.getElementById('success').innerHTML =
-                 "<strong>Success!</strong>";
-                 */
             }
         }
 }
@@ -140,21 +146,26 @@ function process(parsedData) {
         function createTabz(chos, todoPropNamesLen, nex, htmlOutput, fieldnam) {
             for (y = 0; y < todoPropNamesLen; y++) {
                 var nexAroni = nex[chos][y];
+                //console.log(chos);
                 var todos = nexAroni.descrp;
                 var todoID = nexAroni.id;
                 var todoTitle = nexAroni.title;
-                console.log(nexAroni);
+                ////console.log(nexAroni);
                 var to = nexAroni;
-                var todoLength = todos.length;
+                //var todoLength = todos.length;
                 htmlOutput += "<td>" + todoID + "</td><td>" + todoTitle + "</td><td>" +
                     todos + "</td></tr>";
+            }
+            
+            if (chos.startsWith("todos_")) {
+                chos = chos.split("todos_").join('');
             }
             htmlOutput += "<\/tbody>";
             var list = document.createElement("li");
             var htmll = "<a>";
             var addStuff = document.createTextNode(htmll);
             var something = document.getElementById("tabHTML");
-            console.log(something.appendChild(list));
+            ////console.log(something.appendChild(list));
             something.appendChild(list);
             var ranNum = Math.floor((Math.random() * 31231) + 12312);
             list.id = ranNum;
@@ -178,7 +189,7 @@ function process(parsedData) {
             var htmll = "<table>";
             var node = document.createTextNode(htmll);
             var element = document.getElementById("l");
-            console.log(element.appendChild(para));
+            ////console.log(element.appendChild(para));
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512);
             element.appendChild(para);
             para.id = namee;
@@ -223,7 +234,7 @@ function process(parsedData) {
                 var string = JSON.stringify(data);
                 xhttp.onreadystatechange = function() {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        console.log(xhttp.responseText);
+                        ////console.log(xhttp.responseText);
                     }
                 };
                 xhttp.open(reqMethod, link, async);
