@@ -101,30 +101,19 @@ function process(parsedData) {
         var userName = fieldName[4];
         var todoPos = fieldName[2];
         var firstListObject = nex.todos.list1[0];
+        //console.log(Object.getOwnPropertyNames(firstListObject));
         var todoPropNames = Object.getOwnPropertyNames(nex.todos);
+        
         var todoPropNamesLen = todoPropNames.length;
         console.log(todoPropNames);
         var todoListHeader = Object.getOwnPropertyNames(firstListObject);
         var todoListHeaderLength = todoListHeader.length;
         for (k = 0; k < todoListHeaderLength; k++) {
-            var fieldnam = todoListHeader[k];
-            console.log(todoListHeader[k]);
-            switch (fieldnam) {
-                case "descrp":
-                    fieldnam = "Description";
-                    break;
-                case "title":
-                    fieldnam = "Title";
-                    break;
-                case "id":
-                    fieldnam = "ID";
-                    break;
-                default:
-                    fieldnam = "Workpl0x";
-                    break;
-            }
+            var fieldNamRaw = todoListHeader[k];
+            var fieldnam = switchFieldName(fieldNamRaw);
+            htmlOutput += "<th>" + fieldnam + "<\/th>";
         }
-        htmlOutput += "<th>" + fieldnam + "<\/th>";
+        
         htmlOutput += "<\/tr><\/thead><tbody>";
         for (i = 0; i < dataLength; i++) {
             var nex1 = da[i];
@@ -276,4 +265,24 @@ function process(parsedData) {
             }
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+        
+        function switchFieldName (fn) {
+            switch (fn) {
+                case "descrp":
+                    fn = "Description";
+                    break;
+                case "title":
+                    fn = "Title";
+                    break;
+                case "id":
+                    fn = "ID";
+                    break;
+                default:
+                    fn = "Workpl0x";
+                    break;
+                    
+            }
+            return(fn);
+            
         }
