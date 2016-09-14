@@ -81,63 +81,26 @@
 			<div class="row">
 				<div class="text-center">
 					<div class="col-md-12">
+					<div id="error">
+					</div>
+
+
+					<div id="success">
+					</div>
 						<div class="text-center">
 							<br>
 							<center>
 								<ul class="media-list"></ul>
 							</center>
 						</div>
-						<div class="media-body">
-							<div class="col-md-12">
-								<div id="error"></div>
-								<div id="success"></div>
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										GET data!
-									</div>
-									<div class="panel-body">
-										<center>
-											<br>
-											<br>
-											<form>
-												<label>Link to the data you
-												want to retrieve:</label>
-												<input class="form-control" id=
-												"getData" name="user"
-												placeholder=
-												"http://localhost:3000/people"
-												type="text"><br>
-												<br>
-												<div class="form-group">
-													<input class=
-													"btn btn-default" id="send"
-													name="submit" onclick=
-													"GET()" type="button"
-													value="Retrieve!">
-												</div>
-											</form>
-										</center>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="media-body">
 				<div class="col-md-12">
 					<div class="panel panel-info">
 						<div class="panel-heading">
-							Response Output
+							Your Todo Lists:
 						</div>
 						<div class="panel-body" id="l">
 							<center>
-								<label>Add new todo:</label> <input class=
-								"form-control" id="newTodo" name="user"
-								placeholder="Meet Sally" type="text"><br>
-								<button onclick="POST()">Create row</button>
-								<button onclick="myDeleteFunction()">Delete
-								row</button>
 								<ul class="tab" id="tabHTML"></ul>
 							</center>
 						</div>
