@@ -70,15 +70,17 @@
             htmlOutput += "<tr>";
             for (j = 0; j < todoPropNamesLen; j++) {
               var fieldn = todoPropNames[j];
+              console.log(nex[fieldn]);
+              var lengthField = nex[fieldn].length;
               num++;
-              createTabz(fieldn, todoPropNamesLen, nex, htmlOutput, fieldnam);
+              createTabz(fieldn, lengthField, nex, htmlOutput, fieldnam);
               var o;
             }
           }
         }
 
-        function createTabz(chos, todoPropNamesLen, nex, htmlOutput, fieldnam) {
-          for (y = 0; y < todoPropNamesLen; y++) {
+        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam) {
+          for (y = 0; y < lengthField; y++) {
             var nexAroni = nex[chos][y];
             var todos = nexAroni.descrp;
             var todoID = nexAroni.id;
