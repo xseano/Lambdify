@@ -9,7 +9,7 @@ function POST() {
 	} else {
 		var xhttp = new XMLHttpRequest();
 		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd";
-		var reqMethod = "POST";
+		var reqMethod = "PATCH";
 		var async = true;
 		var testArray = {
 			
@@ -35,16 +35,20 @@ function POST() {
 				console.log(xhttp.responseText);
 			}
 		}
-		xhttp.open(reqMethod, link, async);
-		xhttp.setRequestHeader("Content-type", "application/json");
-		xhttp.send({
+		var testv = {
 			
 				"yo": [jointest]
 			
 		
-		});
+		};
+		var kk = JSON.stringify(testv);
+		xhttp.open(reqMethod, link, async);
+		xhttp.setRequestHeader("Content-type", "application/json");
+		
+		xhttp.send(kk);
+		
 		console.log(jointest);
-		console.log(({"yo": [jointest]}));
+		console.log(kk);
 		document.getElementById("success").className = "alert alert-success";
 		document.getElementById("send").setAttribute("type", "button");
 		document.getElementById('success').innerHTML = "<strong>Success!</strong> You sent the username: and email: !";
