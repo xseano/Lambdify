@@ -50,7 +50,7 @@
             return nameee.indexOf("todos") === 0;
           });
           var todoListNameLength = todoListNames.length;
-          var htmlOutput = "<thead><tr>";
+          var htmlOutput = "<tr>";
           var userName = fieldName[4];
           var todoPos = fieldName[2];
           var firstListObject = nex.todos_list2[0];
@@ -58,17 +58,37 @@
           var todoPropNamesLen = todoListNameLength;
           var todoListHeader = Object.getOwnPropertyNames(firstListObject);
           var todoListHeaderLength = todoListHeader.length;
+          var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
+          var ranNummy = Math.floor((Math.random() * 6666) + 88712)
           for (k = 0; k < todoListHeaderLength; k++) {
             var fieldNamRaw = todoListHeader[k];
             var fieldnam = switchFieldName(fieldNamRaw);
             htmlOutput += "<th>" + fieldnam + "<\/th>";
           }
-          htmlOutput += "<\/tr><\/thead><tbody>";
+          
+          htmlOutput += "<\/tr><\/thead>";
+          htmlOutput += "<tbody>";
+        /* 
+         htmlOutput += "<tbody id='";
+          for (j = 0; j < todoPropNamesLen; j++) {
+            var ranNum1 = Math.floor((Math.random() * 31231) + 12312);
+            var ranNum = String.fromCharCode(ranNum1);
+            var num = 0;
+            
+            var ran = ranNum1;
+            console.log(ran);
+            
+          }
+          htmlOutput += ran;
+          htmlOutput += "'>";
+          */
           for (i = 0; i < dataLength; i++) {
             var nex = da[i];
             var num = 0;
             htmlOutput += "<tr>";
             for (j = 0; j < todoPropNamesLen; j++) {
+              
+              
               var fieldn = todoPropNames[j];
               console.log(nex[fieldn]);
               var lengthField = nex[fieldn].length;
@@ -77,6 +97,7 @@
               var o;
             }
           }
+        
         }
 
         function createTabz(chos, lengthField, nex, htmlOutput, fieldnam) {
@@ -86,16 +107,16 @@
             var todoID = nexAroni.id;
             var todoTitle = nexAroni.title;
             var to = nexAroni;
-            htmlOutput += "<td>" + todoID + "</td><td>" + todoTitle +
-              "</td><td>" + todos + "</td></tr>";
+            htmlOutput += "<td>" + todoID + "</td><td contenteditable='true'>" + todoTitle +
+              "</td><td contenteditable='true'>" + todos + "</td></tr>";
           }
-          
+          //console.log(htmlOutput);
           if (chos.startsWith("todos_")) {
             chos = chos.split("todos_").join('');
           } else {
             chos = chos;
           }
-          htmlOutput += "<\/tbody>";
+          htmlOutput += "</tbody>";
           var list = document.createElement("li");
           var htmll = "<a>";
           var addStuff = document.createTextNode(htmll);
@@ -118,7 +139,8 @@
           htmll += "</a>";
           creatTablez(yu, htmlOutput);
         }
-
+        var tableNam;
+        
         function creatTablez(namee, iun) {
           var para = document.createElement("div");
           var htmll = "<table>";
@@ -137,9 +159,17 @@
           aaa.className = "table table-striped";
           htmll += aaa;
           htmll += "</table>";
-          aaa.innerHTML = iun;
+          tableNam = aaa.id;
+          iun.id = ranNum + 89 - 32;
+          console.log(iun[7]);
+          var theadID = ranNum;
+          aaa.innerHTML = "<thead id='" + theadID + "'>" + iun + "</thead>";
+          // var para = document.createElement("button"); //Start working on add row button
+          console.log(theadID);
+          document.getElementById("addRowButton").setAttribute("onclick", "createTableRow(" + theadID + ")");
         }
-
+        
+       
         function refresh(timeoutPeriod) {
           refresh = setTimeout(function() {
             window.location.reload(true);
@@ -176,4 +206,16 @@
               break;
           }
           return (fn);
+        }
+        
+        function createTableRow(tableID) {
+          var table = (tableID);
+          console.log(table);
+          var row = table.insertRow(0);
+          var idCell = row.insertCell(0);
+          var titleCell = row.insertCell(1);
+          var descrpCell = row.insertCell(2);
+          idCell.innerHTML = "ID";
+          titleCell.innerHTML = "Title";
+          descrpCell.innerHTML = "Description";
         }
