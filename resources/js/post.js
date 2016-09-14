@@ -6,49 +6,38 @@ function POST() {
 		document.getElementById("error").className = "alert alert-danger";
 		document.getElementById("send").setAttribute("type", "button");
 		document.getElementById('error').innerHTML = "<strong>Stop!<\/strong> You must fill all fields with values, no blanks!";
+		refreshPage(1000);
 	} else {
 		var xhttp = new XMLHttpRequest();
 		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd";
 		var reqMethod = "PATCH";
 		var async = true;
-		var testArray = {
-			
-			
+		var testArray = {	
+			id: 1,
 			title: todoTitle, 
 			descrp: todoDesc
 			
 			};
+		
 		var testJ = JSON.stringify(testArray);
-		console.log(testJ);
 		var jointest = JSON.parse(testJ);
-		/*
-		var dataContent;
-		var data = [{dataContent}];
-		dataContent["id"] = 44;
-		dataContent["title"] = todoTitle;
-		dataContent["descrp"] = todoDesc;
-		var string = JSON.stringify(data);
-		console.log(string);
-		*/
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4) {
-				console.log(xhttp.responseText);
+				//console.log(xhttp.responseText);
 			}
 		}
+		var listNameFormat = listName;
 		var testv = {
-			
-				"yo": [jointest]
+				
+				
+				listNameFormat: [jointest]
 			
 		
 		};
-		var kk = JSON.stringify(testv);
+		var stringifiedData = JSON.stringify(testv);
 		xhttp.open(reqMethod, link, async);
 		xhttp.setRequestHeader("Content-type", "application/json");
-		
-		xhttp.send(kk);
-		
-		console.log(jointest);
-		console.log(kk);
+		xhttp.send(stringifiedData);
 		document.getElementById("success").className = "alert alert-success";
 		document.getElementById("send").setAttribute("type", "button");
 		document.getElementById('success').innerHTML = "<strong>Success!</strong> You sent the username: and email: !";
@@ -56,7 +45,7 @@ function POST() {
 	}
 }
 
-function refresh(timeoutPeriod) {
+function refreshPage(timeoutPeriod) {
 	refresh = setTimeout(function() {
 		window.location.reload(true);
 	}, timeoutPeriod);
