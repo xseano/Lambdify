@@ -87,8 +87,11 @@
             htmlOutput += "<td>" + todoID + "</td><td>" + todoTitle +
               "</td><td>" + todos + "</td></tr>";
           }
+          
           if (chos.startsWith("todos_")) {
             chos = chos.split("todos_").join('');
+          } else {
+            chos = chos;
           }
           htmlOutput += "<\/tbody>";
           var list = document.createElement("li");
@@ -96,14 +99,15 @@
           var addStuff = document.createTextNode(htmll);
           var something = document.getElementById("tabHTML");
           something.appendChild(list);
-          var ranNum = Math.floor((Math.random() * 31231) + 12312);
+          var ranNum1 = Math.floor((Math.random() * 31231) + 12312);
+          var ranNum = String.fromCharCode(ranNum1);
           list.id = ranNum;
           var aaa = document.createElement("a");
           var text = document.createTextNode(chos);
           aaa.appendChild(text);
           var somethingg = document.getElementById(list.id);
           somethingg.appendChild(aaa);
-          aaa.id = ranNum - (ranNum / 2 + 56);
+          aaa.id = String.fromCharCode(ranNum1 - (ranNum1 / 2 + 56));
           var yu = chos;
           document.getElementById(aaa.id).setAttribute("onclick",
             "openCity(event, '" + yu + "')");
