@@ -50,7 +50,9 @@
             return nameee.indexOf("todos") === 0;
           });
           var todoListNameLength = todoListNames.length;
-          var htmlOutput = "<tr>";
+          var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
+          var ranNummy = Math.floor((Math.random() * 6666) + 88712)
+          var htmlOutput = "<tr id='" + ranNum2 + "'>";
           var userName = fieldName[4];
           var todoPos = fieldName[2];
           var firstListObject = nex.todos_list2[0];
@@ -58,16 +60,17 @@
           var todoPropNamesLen = todoListNameLength;
           var todoListHeader = Object.getOwnPropertyNames(firstListObject);
           var todoListHeaderLength = todoListHeader.length;
-          var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
-          var ranNummy = Math.floor((Math.random() * 6666) + 88712)
+          
           for (k = 0; k < todoListHeaderLength; k++) {
             var fieldNamRaw = todoListHeader[k];
             var fieldnam = switchFieldName(fieldNamRaw);
             htmlOutput += "<th>" + fieldnam + "<\/th>";
           }
           
-          htmlOutput += "<\/tr><\/thead>";
-          htmlOutput += "<tbody>";
+          htmlOutput += "<\/thead>";
+          console.log(htmlOutput);
+          //htmlOutput += iterateNum(htmlOutput);
+         // console.log(iterateNum(htmlOutput));
         /* 
          htmlOutput += "<tbody id='";
           for (j = 0; j < todoPropNamesLen; j++) {
@@ -137,11 +140,11 @@
           aaa.className = "tablinks";
           htmll += aaa;
           htmll += "</a>";
-          creatTablez(yu, htmlOutput);
+          creatTablez(yu, htmlOutput, todoID);
         }
         var tableNam;
         
-        function creatTablez(namee, iun) {
+        function creatTablez(namee, iun, todoID) {
           var para = document.createElement("div");
           var htmll = "<table>";
           var node = document.createTextNode(htmll);
@@ -161,12 +164,16 @@
           htmll += "</table>";
           tableNam = aaa.id;
           iun.id = ranNum + 89 - 32;
-          console.log(iun[7]);
           var theadID = ranNum;
-          aaa.innerHTML = "<thead id='" + theadID + "'>" + iun + "</thead>";
-          // var para = document.createElement("button"); //Start working on add row button
-          console.log(theadID);
-          document.getElementById("addRowButton").setAttribute("onclick", "createTableRow(" + theadID + ")");
+          aaa.innerHTML = "<tbody id='" + theadID + "'>" + iun + "</tbody>";
+          var button = document.createElement("button");
+          var buttonParent = document.getElementById(para.id);
+          buttonParent.appendChild(button);
+          var buttonPlus = document.createTextNode("Add new todo");
+          button.appendChild(buttonPlus);
+          button.id = "addRowButton" + ranNum;
+          console.log(button);
+          document.getElementById(button.id).setAttribute("onclick", "createTableRow(" + theadID + ", " + todoID + ")");
         }
         
        
@@ -202,20 +209,43 @@
               fn = "ID";
               break;
             default:
-              fn = "Workpl0x";
+              fn = "Error";
               break;
           }
           return (fn);
         }
         
-        function createTableRow(tableID) {
-          var table = (tableID);
-          console.log(table);
-          var row = table.insertRow(0);
-          var idCell = row.insertCell(0);
-          var titleCell = row.insertCell(1);
-          var descrpCell = row.insertCell(2);
-          idCell.innerHTML = "ID";
+        function createTableRow(tableID, todoID) {
+          var table = document.getElementById(tableID);
+          var ranNum = Math.floor((Math.random() * 332231) + 566612);
+          var ranNum2 = Math.floor((Math.random() * 345345) + 576512);
+          var childNodes = table.childNodes;
+          var childNodeLength = table.childNodes.length;
+          var childNodeLengthPlus = childNodeLength++;
+          console.log(table.childNodes.length);
+          var rowCreate = document.createElement("tr");
+          var rowParent = document.getElementById(tableID);
+          rowParent.appendChild(rowCreate);
+          var idCell = rowCreate.insertCell(0);
+          var titleCell = rowCreate.insertCell(1);
+          var descrpCell = rowCreate.insertCell(2);
+          idCell.innerHTML = childNodeLengthPlus;
           titleCell.innerHTML = "Title";
           descrpCell.innerHTML = "Description";
+          titleCell.id = ranNum;
+          descrpCell.id = ranNum2;
+          document.getElementById(titleCell.id).setAttribute("contenteditable", "true");
+          document.getElementById(descrpCell.id).setAttribute("contenteditable", "true");
+        }
+        
+        function iterateNum(htmlOutput) {
+          htmlOutput += "<tbody id='";
+          
+          for (var r = 0; r < 1; r++) {
+            var ranNum = Math.floor((Math.random() * 3112231) + 5673512);
+            var out = ranNum;
+            htmlOutput += out;
+        }
+        htmlOutput += "'>";
+        return(htmlOutput);
         }
