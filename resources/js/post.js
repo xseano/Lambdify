@@ -9,11 +9,11 @@ function POST() {
 		refreshPage(1000);
 	} else {
 		var xhttp = new XMLHttpRequest();
-		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd";
-		var reqMethod = "PATCH";
+		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd/";
+		var reqMethod = "POST";
 		var async = true;
 		var testArray = {	
-			id: 1,
+			id: 4,
 			title: todoTitle, 
 			descrp: todoDesc
 			
@@ -23,17 +23,23 @@ function POST() {
 		var jointest = JSON.parse(testJ);
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4) {
-				//console.log(xhttp.responseText);
+				console.log(xhttp.responseText);
 			}
 		}
 		var listNameFormat = listName;
+		
 		var testv = {
 				
 				
-				listNameFormat: [jointest]
+				todos_list1: [testArray]
+				
 			
 		
 		};
+		
+		
+		//var testv = jointest;
+
 		var stringifiedData = JSON.stringify(testv);
 		xhttp.open(reqMethod, link, async);
 		xhttp.setRequestHeader("Content-type", "application/json");

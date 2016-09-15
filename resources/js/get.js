@@ -66,7 +66,7 @@
             var fieldnam = switchFieldName(fieldNamRaw);
             htmlOutput += "<th>" + fieldnam + "<\/th>";
           }
-          
+          htmlOutput += "<th>Options<\/th>";
           htmlOutput += "<\/thead>";
           console.log(htmlOutput);
           //htmlOutput += iterateNum(htmlOutput);
@@ -110,6 +110,7 @@
             var todoID = nexAroni.id;
             var todoTitle = nexAroni.title;
             var to = nexAroni;
+            var 
             htmlOutput += "<td>" + todoID + "</td><td contenteditable='true'>" + todoTitle +
               "</td><td contenteditable='true'>" + todos + "</td></tr>";
           }
@@ -249,3 +250,90 @@
         htmlOutput += "'>";
         return(htmlOutput);
         }
+        
+        function createOptionDropdown() {
+          var list0 = document.createElement("li");
+          list0.className = "dropdown";
+          list0.id = "list0";
+          var aa = document.createElement("a");
+          var ii = document.createElement("i");
+          var ii1 = document.createElement("i");
+          var ii2 = document.createElement("i");
+          var ul0 = document.createElement("ul");
+          var editList = document.createElement("li");
+          var editLable = document.createElement("a");
+          var deleteList = document.createElement("li");
+          var deleteLable = document.createElement("a");
+          
+          var parentList = document.getElementById(list0.id);
+          parentList.appendChild(aa);
+          aa.id = "aa1";
+          aa.className = "dropdown-toggle";
+          
+          document.getElementById(aa.id).setAttribute("aria-expanded", "false");
+          document.getElementById(aa.id).setAttribute("aria-haspopup", "true");
+          document.getElementById(aa.id).setAttribute("data-toggle", "dropdown");
+          document.getElementById(aa.id).setAttribute("href", "#");
+          document.getElementById(aa.id).setAttribute("role", "button");
+          
+          var parentListAA = document.getElementById(aa.id);
+          parentListAA.appendChild(ii);
+          ii.id = "ii1";
+          ii.className = "fa fa-user";
+          
+          parentList.appendChild(ul0);
+          ul0.id = "ul00";
+          ul0.className = "dropdown-menu";
+          
+          var parentListUL = document.getElementById(ul0.id);
+          parentListUL.appendChild(editList);
+          parentListUL.appendChild(deleteList);
+          editList.id = "editList";
+          deleteList.id = "deleteList";
+          
+          var editListParent = document.getElementById(editList.id);
+          var deleteListParent = document.getElementById(deleteList.id);
+          editListParent.appendChild(editLable);
+          deleteListParent.appendChild(deleteLable);
+          editLable.id = "editListLable";
+          document.getElementById(editLable.id).setAttribute("href", "#");
+          deleteLable.id = "deleteListLable";
+          document.getElementById(deleteLable.id).setAttribute("href", "#");
+          
+          var editLableParent = document.getElementById(editLable.id);
+          editLableParent.appendChild(ii1);
+          ii1.id = "ii1";
+          ii1.className = "fa fa-pencil";
+          
+          var deleteLableParent = document.getElementById(deleteLable.id);
+          deleteLableParent.appendChild(ii2);
+          ii2.id = "ii2";
+          ii2.className = "fa fa-pencil";
+          
+         /*
+
+          <li class="dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class=
+            "dropdown-toggle" data-toggle="dropdown" href="#" role=
+            "button">
+            <i class="fa fa-user"></i> 
+            Links</a>
+            
+            <ul class="dropdown-menu">
+              <li>
+                <a href="documentation.html">
+                <i class=
+                "fa fa-camera"></i> Documentation</a>
+              </li>
+              <li>
+                <a href="{githubRepoLink}"><i class=
+                "fa fa-pencil"></i> Github Repository</a>
+              </li>
+              <li>
+                <a href="index.html"><i class="fa fa-home"></i>
+                Home</a>
+              </li>
+            </ul>
+          </li>
+          */
+        } 
