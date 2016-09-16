@@ -2,6 +2,7 @@ function POST() {
 	var listName = document.getElementById('listName').value;
 	var todoTitle = document.getElementById('todoTitle').value;
 	var todoDesc = document.getElementById('todoDesc').value;
+	var userid = "hhhhadjklsajkdlaskjd";
 	if ((listName == "") || (todoTitle == "") || ((todoTitle) == "" && (listName == ""))) {
 		document.getElementById("error").className = "alert alert-danger";
 		document.getElementById("send").setAttribute("type", "button");
@@ -9,15 +10,14 @@ function POST() {
 		refreshPage(1000);
 	} else {
 		var xhttp = new XMLHttpRequest();
-		var link = "http://localhost:3000/users/hhhhadjklsajkdlaskjd/";
+		var link = "http://localhost:3000/users/" + userid + "/todos";
 		var reqMethod = "POST";
 		var async = true;
-		var testArray = {	
-			id: 4,
-			title: todoTitle, 
-			descrp: todoDesc
+		var testArray = { 
 			
-			};
+			name: listName, userId: userid, items: [{id: 1, title: todoTitle, descrp: todoDesc}] 
+		
+		};
 		
 		var testJ = JSON.stringify(testArray);
 		var jointest = JSON.parse(testJ);
@@ -28,19 +28,8 @@ function POST() {
 		}
 		var listNameFormat = listName;
 		
-		var testv = {
-				
-				
-				todos_list1: [testArray]
-				
-			
-		
-		};
-		
-		
-		//var testv = jointest;
 
-		var stringifiedData = JSON.stringify(testv);
+		var stringifiedData = JSON.stringify(testArray);
 		xhttp.open(reqMethod, link, async);
 		xhttp.setRequestHeader("Content-type", "application/json");
 		xhttp.send(stringifiedData);
