@@ -48,32 +48,40 @@ var xhttp = new XMLHttpRequest();
         function process(parsedData, dataNames, numb, dataLengthi) {
             var data = parsedData;
             var da = data;
-            //console.log(dataNames);
-            var dataLength = data.length;
+            //console.log(parsedData);
+            var dataLength = parsedData.length;
             for (i = 0; i < dataLength; i++) {
                 var nex = data[i];
-                //console.log(nex);
+                console.log(nex);
+                
+               //var fieldName = Object.keys(nex);
                 
             }
-            var fieldName = Object.keys(nex);
+            console.log(data.length);
+            
+                var fieldName = Object.keys(nex);
+            //var fieldName = Object.keys(nex);
             //console.log(fieldName);
             
+            
+            /*
             var todoListNames = Object.keys(nex).filter(function(nameee) {
                 return nameee.indexOf("name") === 0;
             });
+            */
             var fieldLength = fieldName.length;
             var i;
             var j;
             var k;
             var y;
-            var todoListNameLength = todoListNames.length;
+           // var todoListNameLength = todoListNames.length;
             var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
             var ranNummy = Math.floor((Math.random() * 6666) + 88712)
             var htmlOutput = "<tr id='" + ranNum2 + "'>";
-            var todoPropNames = todoListNames;
-            var todoPropNamesLen = todoListNameLength;
-            var todoListHeader = Object.getOwnPropertyNames(fieldName);
-            var todoListHeaderLength = todoListHeader.length;
+            //var todoPropNames = todoListNames;
+            //var todoPropNamesLen = todoListNameLength;
+            var todoListHeader = Object.keys(fieldName);
+            //var todoListHeaderLength = todoListHeader.length;
             for (k = 0; k < fieldLength; k++) {
                 var fieldNamRaw = fieldName[k];
                 
@@ -88,23 +96,24 @@ var xhttp = new XMLHttpRequest();
             }
             htmlOutput += "<th>Options<\/th>";
             htmlOutput += "<\/thead></tr>";
-            for (i = 1; i < dataLength; i++) {
+           // for (j = 0; j < dataLength; j++) {
                 var num = 0;
-                var nex = data[i];
-                //console.log(dataLength);
-                createTabz(nex, dataLength, nex, htmlOutput, fieldnam, dataNames, data);
+                //var nex = data[j];
+                //console.log(todoListHeader);
+                createTabz(nex, dataLength, nex, htmlOutput, fieldnam, dataNames, data, numb);
                 
-            }
+            //}
         }
         
         
 
-        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames, datar) {
-            for (y = 0; y < lengthField; y++) {
+        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames, datar, numb) {
+           for (y = 0; y < lengthField; y++) {
                 var nexAroni = datar[y];
                 var todos = nexAroni.descrp;
-                var todoID = nexAroni.id;;
+                var todoID = nexAroni.id;
                 var todoTitle = nexAroni.title;
+                console.log(nexAroni);
                 var to = nexAroni;
                 htmlOutput += "<td>" + todoID +
                     "</td><td contenteditable='true'>" + todoTitle +
@@ -133,7 +142,7 @@ var xhttp = new XMLHttpRequest();
             aaa.className = "tablinks";
             htmll += aaa;
             htmll += "</a>";
-            creatTablez(yu, listidd, htmlOutput, todoID);
+            creatTablez(yu, numb, htmlOutput, todoID);
         }
         var tableNam;
 
@@ -191,6 +200,7 @@ var xhttp = new XMLHttpRequest();
                 tablinks[i].className = tablinks[i].className.replace(
                     " active", "");
             }
+            
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
@@ -241,8 +251,9 @@ var xhttp = new XMLHttpRequest();
             titleCell.innerHTML = "Title";
             descrpCell.innerHTML = "Description";
             var testva = divID;
-            //console.log(testva.id);
-            optionCell.innerHTML = "<input class='btn btn-default' id='send' name='submit' onclick='sendStuff(" + testva.id + ", " + idCell.id + ", " +titleCell.id+", " + descrpCell.id + ", " + listID + ")' type='submit' value='Save!'>";
+            var listys = listID;
+            console.log(listID);
+            optionCell.innerHTML = "<input class='btn btn-default' id='send' name='submit' onclick='sendStuff(" + testva.id + ", " + idCell.id + ", " +titleCell.id+", " + descrpCell.id + ", " + listys + ")' type='submit' value='Save!'>";
             
         }
 
@@ -341,22 +352,33 @@ var xhttp = new XMLHttpRequest();
         }
         function sendStuff(tableid, id, title, desc, listidd) {
           var listName = tableid.id;
-          var todoid = id;
-          var todoTitle = document.getElementById(title).value;
-          var todoDesc = document.getElementById(desc).value;
-        //console.log(todoTitle);
-        //console.log(todoDesc);
+          var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
+          var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum+6);
+          var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
+          var todoid = ranNum2;
+          var listIdt = listidd;
+          var todoTitle = document.getElementById(title).innerHTML;
+          var todoDesc = document.getElementById(desc).innerHTML;
+        console.log(title);
+        console.log(todoTitle);
+        console.log(desc);
+        console.log(todoDesc);
+        console.log(listIdt);
           var userid = "hhhhadjklsajkdlaskjd";
           if ((listName == "") || (todoTitle == "") || ((todoTitle) == "" && (listName == ""))) {
             //refreshPage(1000);
           } else {
             var xhttp = new XMLHttpRequest();
-            var link = "http://localhost:3000/todos" + listidd;
+            var link = "http://localhost:3000/lists/1/items";
             var reqMethod = "POST";
             var async = true;
             var testArray = { 
-
-              items: [{id: todoid, title: title, descrp: desc}] 
+                
+                id: todoid,
+                listId: listIdt,
+                userId: userid,
+                title: todoTitle,
+                descrp: todoDesc
             
             };
             
