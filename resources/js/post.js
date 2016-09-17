@@ -40,6 +40,56 @@ function POST() {
 	}
 }
 
+function createNewTodoList() {
+	var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
+	var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum + 6);
+	var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
+	var newListName = document.getElementById("newListName").value;
+	console.log(newListName);
+	var rLength = len;
+	var userid = "hhhhadjklsajkdlaskjd";
+	var xhttp = new XMLHttpRequest();
+	var link = "http://localhost:3000/lists";
+	var reqMethod = "POST";
+	var async = true;
+	var testArray = {
+		id: ranNum2,
+		name: newListName,
+		userId: userid
+	};
+	var testJ = JSON.stringify(testArray);
+	var jointest = JSON.parse(testJ);
+	var listNameFormat = listName;
+	var stringifiedData = JSON.stringify(testArray);
+	xhttp.open(reqMethod, link, async);
+	xhttp.setRequestHeader("Content-type", "application/json");
+	xhttp.send(stringifiedData);
+	createFirstTodoObject(ranNum2, userid);
+}
+
+function createFirstTodoObject(listIID, uid) {
+	var xhttp = new XMLHttpRequest();
+	var listid = listIID;
+	var userid = uid;
+	var link = "http://localhost:3000/lists/" + listid + "/items";
+	var reqMethod = "POST";
+	var async = true;
+	var testArray = {
+		id: 1,
+		listId: listid,
+		userId: uid,
+		title: "Lambdify",
+		descrp: "First Todo Description"
+	};
+	var testJ = JSON.stringify(testArray);
+	var jointest = JSON.parse(testJ);
+	var listNameFormat = listName;
+	var stringifiedData = JSON.stringify(testArray);
+	xhttp.open(reqMethod, link, async);
+	xhttp.setRequestHeader("Content-type", "application/json");
+	xhttp.send(stringifiedData);
+}
+
 function refreshPage(timeoutPeriod) {
 	refresh = setTimeout(function() {
 		window.location.reload(true);

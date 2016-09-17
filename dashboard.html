@@ -27,90 +27,98 @@
 	<div class=
 	"container navbar navbar-default navbar-fixed-top navbar-transparent">
 		<div class="navbar-header">
-			<button class="navbar-toggle" data-target=
-			".navbar-responsive-collapse" data-toggle="collapse" type=
-			"button"><span class="icon-bar"></span> <span class=
-			"icon-bar"></span> <span class="icon-bar"></span></button>
+			<button class="navbar-toggle" data-target=".navbar-responsive-collapse"
+			data-toggle="collapse" type="button"><span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span></button>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-main">
-		<ul class="nav navbar-nav">
-			
-			<li>
-				<a href="index.html"><i class="fa fa-home"></i> Home</a>
-			</li>
-
-			<li>
-				<a href="add.html"><i class="fa fa-group"></i> Add ToDo</a>
-			</li>
-
-		</ul>			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="index.html"><i class="fa fa-home"></i> Home</a>
+				</li>
+				<li>
+					<a href="add.html"><i class="fa fa-group"></i> Add ToDo</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
 				<li></li>
 				<li class="dropdown">
-					<a aria-expanded="false" aria-haspopup="true" class=
-					"dropdown-toggle" data-toggle="dropdown" href="#" role=
-					"button"><i class="fa fa-user"></i> Links</a>
+					<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
+					data-toggle="dropdown" href="#" role="button"><i class=
+					"fa fa-user"></i> Links</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="documentation.html"><i class=
-							"fa fa-camera"></i> Documentation</a>
+							<a href="documentation.html"><i class="fa fa-camera"></i>
+							Documentation</a>
 						</li>
 						<li>
-							<a href="{githubRepoLink}"><i class=
-							"fa fa-pencil"></i> Github Repository</a>
+							<a href="{githubRepoLink}"><i class="fa fa-pencil"></i> Github
+							Repository</a>
 						</li>
 						<li>
-							<a href="index.html"><i class="fa fa-home"></i>
-							Home</a>
+							<a href="index.html"><i class="fa fa-home"></i> Home</a>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 	</div>
-	
 	<div class="header container"></div>
 	<div align="center">
 		<div class="container white" style="margin-bottom: 50px;">
 			<br>
-			<script src="./resources/js/wallDash.js" charset="utf-8"></script>
 			<div class="well">
-				<center id="wallMxsDash">
-					
-				</center>
+				<center id="wallMxsDash"></center>
 			</div>
 			<div class="row">
 				<div class="text-center">
 					<div class="col-md-12">
-					<div id="error">
+						<div id="error"></div>
+						<div id="success"></div>
 					</div>
-
-
-					<div id="success">
+					<div class="text-center">
+						<center>
+							<ul class="media-list"></ul>
+						</center>
 					</div>
-					</div>
-						<div class="text-center">
-							<center>
-								<ul class="media-list"></ul>
-							</center>
-						</div>
-			<div class="media-body">
-				<div class="col-md-12">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							Your Todo Lists:
-						</div>
-						<div class="panel-body" id="l">
-						
-							<center>
-								<ul class="tab" id="tabHTML"></ul>
-							</center>
+					<div class="media-body">
+						<div class="col-md-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									Add some todos!
+								</div>
+								<div class="panel-body">
+									<center>
+										<form>
+											<label>New list name:</label> <input class="form-control" id=
+											"newListName" name="newListName" placeholder="Maui Packing"
+											type="text"><br>
+				
+											<div class="form-group">
+												<input class="btn btn-default" id="newListaroni" name="submit"
+												onclick="createNewTodoList()" type="submit" value="Create!">
+											</div>
+										</form>
+									</center>
+								</div>
+							</div>
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									Your Todo Lists:
+								</div>
+								<div class="panel-body" id="l">
+									<center>
+										<ul class="tab" id="tabHTML"></ul>
+									</center>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<script charset="utf-8" src="./resources/js/get.js"></script>
+			<script charset="utf-8" src="./resources/js/wallDash.js"></script>
 		</div>
 	</div>
-	<script charset="utf-8" src="./resources/js/get.js">
-	</script>
 </body>
 </html>
