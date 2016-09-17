@@ -1,4 +1,4 @@
-var xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();
         var reqMethod = "GET";
         var linkAroni =
             "http://localhost:3000/users/hhhhadjklsajkdlaskjd/lists";
@@ -14,7 +14,6 @@ var xhttp = new XMLHttpRequest();
                     var dataNamez = data[i].name;
                     ii = i+1;
                     getTodoItems(ii, dataNamez, dataLength);
-                    //console.log(data);
                     
                 }
             }
@@ -29,13 +28,11 @@ var xhttp = new XMLHttpRequest();
             var xhttp = new XMLHttpRequest();
             var reqMethod = "GET";
             var linkAroni = "http://localhost:3000/lists/" + todoListID + "/items";
-            //console.log(todoListID);
             var asyncAroni = true;
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                     var parsData = JSON.parse(this.responseText);
                     var unParsData = this.responseText;
-                    //console.log(parsData);
                     process(parsData, dataNames, todoListID, dataLength);
                 }
                     
@@ -48,40 +45,23 @@ var xhttp = new XMLHttpRequest();
         function process(parsedData, dataNames, numb, dataLengthi) {
             var data = parsedData;
             var da = data;
-            //console.log(parsedData);
             var dataLength = parsedData.length;
             for (i = 0; i < dataLength; i++) {
                 var nex = data[i];
                 console.log(nex);
                 
-               //var fieldName = Object.keys(nex);
-                
             }
-            console.log(data.length);
             
-                var fieldName = Object.keys(nex);
-            //var fieldName = Object.keys(nex);
-            //console.log(fieldName);
-            
-            
-            /*
-            var todoListNames = Object.keys(nex).filter(function(nameee) {
-                return nameee.indexOf("name") === 0;
-            });
-            */
+            var fieldName = Object.keys(nex);
             var fieldLength = fieldName.length;
             var i;
             var j;
             var k;
             var y;
-           // var todoListNameLength = todoListNames.length;
             var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
             var ranNummy = Math.floor((Math.random() * 6666) + 88712)
             var htmlOutput = "<tr id='" + ranNum2 + "'>";
-            //var todoPropNames = todoListNames;
-            //var todoPropNamesLen = todoListNameLength;
             var todoListHeader = Object.keys(fieldName);
-            //var todoListHeaderLength = todoListHeader.length;
             for (k = 0; k < fieldLength; k++) {
                 var fieldNamRaw = fieldName[k];
                 
@@ -89,20 +69,14 @@ var xhttp = new XMLHttpRequest();
                 var fieldnam = switchFieldName(fieldNamRaw);
                 var fieldNameCount = 0;
                 fieldNameCount++;
-                //console.log(fieldNamRaw);
                 htmlOutput += "<th>" + fieldnam + "<\/th>";
                 
                 }
             }
             htmlOutput += "<th>Options<\/th>";
             htmlOutput += "<\/thead></tr>";
-           // for (j = 0; j < dataLength; j++) {
                 var num = 0;
-                //var nex = data[j];
-                //console.log(todoListHeader);
                 createTabz(nex, dataLength, nex, htmlOutput, fieldnam, dataNames, data, numb);
-                
-            //}
         }
         
         
@@ -120,7 +94,6 @@ var xhttp = new XMLHttpRequest();
                     "</td><td contenteditable='true'>" + todos +
                     "</td><td><input class='btn btn-default' id='send' name='submit' onclick='POST()' type='submit' value='Create!'></td></tr>";
             }
-            //htmlOutput += "</tbody>";
             var list = document.createElement("li");
             var htmll = "<a>";
             var addStuff = document.createTextNode(htmll);
@@ -168,19 +141,21 @@ var xhttp = new XMLHttpRequest();
             iun.id = ranNum + 89 - 32;
             var theadID = ranNum;
             aaa.innerHTML = "<tbody id='" + theadID + "'>" + iun + "</tbody>";
-            var button = document.createElement("button");
+            var button = document.createElement("input");
             var buttonParent = document.getElementById(para.id);
+            
             buttonParent.appendChild(button);
-            /*
-            aaa.innerHTML += "<input class='form-control' id='titleNew' name='titleNew' placeholder='Title' type='text'>";
-            aaa.innerHTML += "<input class='form-control' id='descriNew' name='descriNew' placeholder='Description' type='text'>";
-            */
+            
             
             var buttonPlus = document.createTextNode("Add new todo");
             button.appendChild(buttonPlus);
+            button.className = "btn btn-default";
+            
             button.id = "addRowButton" + ranNum;
             document.getElementById(button.id).setAttribute("onclick",
                 "createTableRow(" + theadID + ", " + todoID + ", " + namee + ", " + listid + ")");
+            document.getElementById(button.id).setAttribute("type", "submit");
+            document.getElementById(button.id).setAttribute("value", "Add New Todo");
         }
 
         function refresh(timeoutPeriod) {
@@ -230,7 +205,6 @@ var xhttp = new XMLHttpRequest();
             var ranNum3 = Math.floor((Math.random() * ranNum) + ranNum2);
             var childNodes = table.childNodes;
             var childNodeLength = table.childNodes.length;
-            //console.log(childNodes);
             var childNodeLengthPlus = childNodeLength++;
             var rowCreate = document.createElement("tr");
             var rowParent = document.getElementById(tableID);
@@ -323,32 +297,6 @@ var xhttp = new XMLHttpRequest();
             deleteLableParent.appendChild(ii2);
             ii2.id = "ii2";
             ii2.className = "fa fa-pencil";
-            /*
-
-          <li class="dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class=
-            "dropdown-toggle" data-toggle="dropdown" href="#" role=
-            "button">
-            <i class="fa fa-user"></i> 
-            Links</a>
-            
-            <ul class="dropdown-menu">
-              <li>
-                <a href="documentation.html">
-                <i class=
-                "fa fa-camera"></i> Documentation</a>
-              </li>
-              <li>
-                <a href="{githubRepoLink}"><i class=
-                "fa fa-pencil"></i> Github Repository</a>
-              </li>
-              <li>
-                <a href="index.html"><i class="fa fa-home"></i>
-                Home</a>
-              </li>
-            </ul>
-          </li>
-          */
         }
         function sendStuff(tableid, id, title, desc, listidd) {
           var listName = tableid.id;
@@ -366,10 +314,9 @@ var xhttp = new XMLHttpRequest();
         console.log(listIdt);
           var userid = "hhhhadjklsajkdlaskjd";
           if ((listName == "") || (todoTitle == "") || ((todoTitle) == "" && (listName == ""))) {
-            //refreshPage(1000);
           } else {
             var xhttp = new XMLHttpRequest();
-            var link = "http://localhost:3000/lists/1/items";
+            var link = "http://localhost:3000/lists/" + listIdt + "/items";
             var reqMethod = "POST";
             var async = true;
             var testArray = { 
@@ -386,7 +333,6 @@ var xhttp = new XMLHttpRequest();
             var jointest = JSON.parse(testJ);
             xhttp.onreadystatechange = function() {
               if (xhttp.readyState == 4) {
-                //console.log(xhttp.responseText);
               }
             }
             var listNameFormat = listName;
