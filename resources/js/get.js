@@ -1,40 +1,63 @@
 var xhttp = new XMLHttpRequest();
         var reqMethod = "GET";
         var linkAroni =
-            "http://localhost:3000/users/hhhhadjklsajkdlaskjd/todos";
+            "http://localhost:3000/users/hhhhadjklsajkdlaskjd/lists";
         var asyncAroni = true;
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4) {
                 var parsData = JSON.parse(this.responseText);
                 var unParsData = this.responseText;
-                //console.log(unParsData);
-                process(parsData);
-                if ((unParsData.startsWith("[")) && (unParsData.includes(
-                    "id"))) {
-                    document.getElementById("success").className =
-                        "alert alert-success";
-                    document.getElementById('success').innerHTML =
-                        "<strong>Success!</strong> Retrieved Todo Lists Successfully!!";
-                } else {
-                    document.getElementById("error").className =
-                        "alert alert-danger";
-                    document.getElementById('error').innerHTML =
-                        "<strong>Whoops!</strong> There was an error processing this transaction!";
+                var da = parsData;
+                var data = parsData;
+                var dataLength = data.length;
+                for (var i = 0; i < dataLength; i++) {
+                    var dataNamez = data[i].name;
+                    ii = i+1;
+                    getTodoItems(ii, dataNamez, dataLength);
+                    //console.log(data);
+                    
                 }
             }
+
+            
         };
+        
         xhttp.open(reqMethod, linkAroni, asyncAroni);
         xhttp.send();
+        
+        function getTodoItems(todoListID, dataNames, dataLength) {
+            var xhttp = new XMLHttpRequest();
+            var reqMethod = "GET";
+            var linkAroni = "http://localhost:3000/lists/" + todoListID + "/items";
+            //console.log(todoListID);
+            var asyncAroni = true;
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    var parsData = JSON.parse(this.responseText);
+                    var unParsData = this.responseText;
+                    //console.log(parsData);
+                    process(parsData, dataNames, todoListID, dataLength);
+                }
+                    
+                
+            };
+            xhttp.open(reqMethod, linkAroni, asyncAroni);
+            xhttp.send();
+        }
 
-        function process(parsedData) {
+        function process(parsedData, dataNames, numb, dataLengthi) {
             var data = parsedData;
             var da = data;
-            (data);
+            //console.log(dataNames);
             var dataLength = data.length;
             for (i = 0; i < dataLength; i++) {
                 var nex = data[i];
+                //console.log(nex);
+                
             }
-            var fieldName = nex.name;
+            var fieldName = Object.keys(nex);
+            //console.log(fieldName);
+            
             var todoListNames = Object.keys(nex).filter(function(nameee) {
                 return nameee.indexOf("name") === 0;
             });
@@ -47,40 +70,40 @@ var xhttp = new XMLHttpRequest();
             var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
             var ranNummy = Math.floor((Math.random() * 6666) + 88712)
             var htmlOutput = "<tr id='" + ranNum2 + "'>";
-            var firstListObject = nex.items[0];
             var todoPropNames = todoListNames;
             var todoPropNamesLen = todoListNameLength;
-            var todoListHeader = Object.getOwnPropertyNames(firstListObject);
+            var todoListHeader = Object.getOwnPropertyNames(fieldName);
             var todoListHeaderLength = todoListHeader.length;
-            for (k = 0; k < todoListHeaderLength; k++) {
-                var fieldNamRaw = todoListHeader[k];
+            for (k = 0; k < fieldLength; k++) {
+                var fieldNamRaw = fieldName[k];
+                
+                if ((fieldNamRaw == "id") || (fieldNamRaw == "descrp") || (fieldNamRaw == "title")) {
                 var fieldnam = switchFieldName(fieldNamRaw);
-                (fieldnam);
+                var fieldNameCount = 0;
+                fieldNameCount++;
+                //console.log(fieldNamRaw);
                 htmlOutput += "<th>" + fieldnam + "<\/th>";
+                
+                }
             }
             htmlOutput += "<th>Options<\/th>";
             htmlOutput += "<\/thead></tr>";
-            for (i = 0; i < dataLength; i++) {
-                var nex = data[i];
+            for (i = 1; i < dataLength; i++) {
                 var num = 0;
-                var listNamez = nex.name;
-                for (j = 0; j < todoPropNamesLen; j++) {
-                    var fieldn = nex.name;
-                    var lengthField = nex.items.length;
-                    num++;
-                    
-                    createTabz(fieldn, lengthField, nex, htmlOutput, fieldnam);
-                    var o;
-                }
+                var nex = data[i];
+                //console.log(dataLength);
+                createTabz(nex, dataLength, nex, htmlOutput, fieldnam, dataNames, data);
+                
             }
         }
+        
+        
 
-        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam) {
+        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames, datar) {
             for (y = 0; y < lengthField; y++) {
-                var nexAroni = nex.items[y];
+                var nexAroni = datar[y];
                 var todos = nexAroni.descrp;
-                var todoID = nexAroni.id;
-                console.log(todoID);
+                var todoID = nexAroni.id;;
                 var todoTitle = nexAroni.title;
                 var to = nexAroni;
                 htmlOutput += "<td>" + todoID +
@@ -98,22 +121,23 @@ var xhttp = new XMLHttpRequest();
             var ranNum = String.fromCharCode(ranNum1);
             list.id = ranNum;
             var aaa = document.createElement("a");
-            var text = document.createTextNode(chos);
+            var text = document.createTextNode(dataNames);
             aaa.appendChild(text);
             var somethingg = document.getElementById(list.id);
             somethingg.appendChild(aaa);
             aaa.id = String.fromCharCode(ranNum1 - (ranNum1 / 2 + 56));
-            var yu = chos;
+            var yu = dataNames;
+            var listidd = dataNames.id;
             document.getElementById(aaa.id).setAttribute("onclick",
                 "openCity(event, '" + yu + "')");
             aaa.className = "tablinks";
             htmll += aaa;
             htmll += "</a>";
-            creatTablez(yu, htmlOutput, todoID);
+            creatTablez(yu, listidd, htmlOutput, todoID);
         }
         var tableNam;
 
-        function creatTablez(namee, iun, todoID) {
+        function creatTablez(namee, listid, iun, todoID) {
             var para = document.createElement("div");
             var htmll = "<table>";
             var node = document.createTextNode(htmll);
@@ -147,7 +171,7 @@ var xhttp = new XMLHttpRequest();
             button.appendChild(buttonPlus);
             button.id = "addRowButton" + ranNum;
             document.getElementById(button.id).setAttribute("onclick",
-                "createTableRow(" + theadID + ", " + todoID + ", " + para.id + ")");
+                "createTableRow(" + theadID + ", " + todoID + ", " + namee + ", " + listid + ")");
         }
 
         function refresh(timeoutPeriod) {
@@ -189,36 +213,37 @@ var xhttp = new XMLHttpRequest();
             return (fn);
         }
 
-        function createTableRow(tableID, todoID, divID) {
+        function createTableRow(tableID, todoID, divID, listID) {
             var table = document.getElementById(tableID);
             var ranNum = Math.floor((Math.random() * 332231) + 566612);
             var ranNum2 = Math.floor((Math.random() * 345345) + 576512);
             var ranNum3 = Math.floor((Math.random() * ranNum) + ranNum2);
             var childNodes = table.childNodes;
             var childNodeLength = table.childNodes.length;
-            console.log(childNodes);
+            //console.log(childNodes);
             var childNodeLengthPlus = childNodeLength++;
             var rowCreate = document.createElement("tr");
             var rowParent = document.getElementById(tableID);
             rowParent.appendChild(rowCreate);
             var idCell = rowCreate.insertCell(0);
-            idCell.id = ranNum;
+            idCell.id = childNodeLengthPlus;
             var titleCell = rowCreate.insertCell(1);
             titleCell.id = ranNum2;
             var descrpCell = rowCreate.insertCell(2);
             descrpCell.id = ranNum3;
             var optionCell = rowCreate.insertCell(3);
-            idCell.innerHTML = childNodeLengthPlus;
-            titleCell.innerHTML = "Title";
-            descrpCell.innerHTML = "Description";
-            optionCell.innerHTML = "<input class='btn btn-default' id='send' name='submit' onclick='sendStuff(" + divID+ ", " + idCell.id + ", " +titleCell.id+", " + descrpCell.id + ")' type='submit' value='Save!'>";
-            titleCell.id = ranNum;
-            descrpCell.id = ranNum2;
             optionCell.id = ranNum3;
             document.getElementById(titleCell.id).setAttribute(
                 "contenteditable", "true");
             document.getElementById(descrpCell.id).setAttribute(
                 "contenteditable", "true");
+            idCell.innerHTML = childNodeLengthPlus;
+            titleCell.innerHTML = "Title";
+            descrpCell.innerHTML = "Description";
+            var testva = divID;
+            //console.log(testva.id);
+            optionCell.innerHTML = "<input class='btn btn-default' id='send' name='submit' onclick='sendStuff(" + testva.id + ", " + idCell.id + ", " +titleCell.id+", " + descrpCell.id + ", " + listID + ")' type='submit' value='Save!'>";
+            
         }
 
         function iterateNum(htmlOutput) {
@@ -314,26 +339,24 @@ var xhttp = new XMLHttpRequest();
           </li>
           */
         }
-        function sendStuff(tableid, id, title, desc) {
-          var listName = tableid;
-          console.log(listName);
-          var todoid = document.getElementById(id).value;
-          console.log(todoid);
+        function sendStuff(tableid, id, title, desc, listidd) {
+          var listName = tableid.id;
+          var todoid = id;
           var todoTitle = document.getElementById(title).value;
           var todoDesc = document.getElementById(desc).value;
+        //console.log(todoTitle);
+        //console.log(todoDesc);
           var userid = "hhhhadjklsajkdlaskjd";
           if ((listName == "") || (todoTitle == "") || ((todoTitle) == "" && (listName == ""))) {
             //refreshPage(1000);
           } else {
             var xhttp = new XMLHttpRequest();
-            var link = "http://localhost:3000/users/" + userid + "/todos";
+            var link = "http://localhost:3000/todos" + listidd;
             var reqMethod = "POST";
             var async = true;
             var testArray = { 
-              
-              name: listName, 
-              userId: userid, 
-              items: [{id: todoid, title: todoTitle, descrp: todoDesc}] 
+
+              items: [{id: todoid, title: title, descrp: desc}] 
             
             };
             
@@ -341,7 +364,7 @@ var xhttp = new XMLHttpRequest();
             var jointest = JSON.parse(testJ);
             xhttp.onreadystatechange = function() {
               if (xhttp.readyState == 4) {
-                console.log(xhttp.responseText);
+                //console.log(xhttp.responseText);
               }
             }
             var listNameFormat = listName;
