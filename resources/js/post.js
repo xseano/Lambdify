@@ -53,9 +53,11 @@ function createNewTodoList() {
 	var reqMethod = "POST";
 	var async = true;
 	var testArray = {
+		{
 		id: ranNum2,
 		name: newListName,
 		userId: userid
+		}
 	};
 	var testJ = JSON.stringify(testArray);
 	var jointest = JSON.parse(testJ);
@@ -75,6 +77,7 @@ function createFirstTodoObject(listIID, uid) {
 	var reqMethod = "POST";
 	var async = true;
 	var testArray = {
+		
 		id: 1,
 		listId: listid,
 		userId: uid,

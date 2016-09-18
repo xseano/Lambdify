@@ -100,9 +100,10 @@ var xhttp = new XMLHttpRequest();
                   var todos = nexAroni.descrp;
                   var todoID = nexAroni.id;
                   var todoTitle = nexAroni.title;
+                  var testyla = y;
                   console.log(nexAroni);
                   var to = nexAroni;
-                  htmlOutput += "<td>" + todoID + "</td><td contenteditable='true'>" +
+                  htmlOutput += "<td>" + y + "</td><td contenteditable='true'>" +
                         todoTitle + "</td><td contenteditable='true'>" + todos +
                         "</td><td><input class='btn btn-default' id='send' name='submit' onclick='POST()' type='submit' value='Create!'></td></tr>";
             }
@@ -127,7 +128,7 @@ var xhttp = new XMLHttpRequest();
             aaa.className = "tablinks";
             htmll += aaa;
             htmll += "</a>";
-            creatTablez(yu, numb, htmlOutput, todoID);
+            creatTablez(yu, numb, htmlOutput, testyla);
       }
       var tableNam;
 
@@ -212,7 +213,7 @@ var xhttp = new XMLHttpRequest();
             var ranNum3 = Math.floor((Math.random() * ranNum) + ranNum2);
             var childNodes = table.childNodes;
             var childNodeLength = table.childNodes.length;
-            var childNodeLengthPlus = childNodeLength++;
+            var childNodeLengthPlus = childNodeLength++ - 1;
             var rowCreate = document.createElement("tr");
             var rowParent = document.getElementById(tableID);
             rowParent.appendChild(rowCreate);
@@ -346,7 +347,7 @@ var xhttp = new XMLHttpRequest();
             }
       }
 
-      /*
+      
       function getListLength() {
             var xhttp = new XMLHttpRequest();
             var reqMethod = "GET";
@@ -367,7 +368,7 @@ var xhttp = new XMLHttpRequest();
             xhttp.send();
             createNewTodoList(dataLength);
       }
-      */
+      
 
       function createNewTodoList() {
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
