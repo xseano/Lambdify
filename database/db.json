@@ -1,0 +1,217 @@
+{
+  "users": [
+    {
+      "id": "hhhhadjklsajkdlaskjd",
+      "unm": "sean",
+      "email": "sean.o@mac.com",
+      "pwd": "black"
+    },
+    {
+      "id": "tasdasasdasdasdasdas",
+      "unm": "john",
+      "email": "john.o@mac.com",
+      "pwd": "white"
+    }
+  ],
+  "lists": [
+    {
+      "id": 1,
+      "name": "list1",
+      "userId": "hhhhadjklsajkdlaskjd"
+    },
+    {
+      "id": 2,
+      "name": "list2",
+      "userId": "hhhhadjklsajkdlaskjd"
+    },
+    {
+      "id": 3,
+      "name": "list3",
+      "userId": "tasdasasdasdasdasdas"
+    },
+    {
+      "id": 4,
+      "name": "list4",
+      "userId": "tasdasasdasdasdasdas"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "TitleTest",
+      "descrp": "DescriptionTest"
+    },
+    {
+      "id": 2,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "TitleTest2",
+      "descrp": "DescriptionTest2"
+    },
+    {
+      "id": 3,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptionadasd"
+    },
+    {
+      "id": 4,
+      "listId": 3,
+      "userId": "tasdasasdasdasdasdas",
+      "title": "TitleTest111",
+      "descrp": "DescriptionTest111"
+    },
+    {
+      "id": 5,
+      "listId": 3,
+      "userId": "tasdasasdasdasdasdas",
+      "title": "TitleTest211",
+      "descrp": "DescriptionTest211"
+    },
+    {
+      "id": 6,
+      "listId": 4,
+      "userId": "tasdasasdasdasdasdas",
+      "title": "TitleTest111",
+      "descrp": "DescriptionTest111"
+    },
+    {
+      "id": 7,
+      "listId": 4,
+      "userId": "tasdasasdasdasdasdas",
+      "title": "TitleTest211",
+      "descrp": "DescriptionTest211"
+    },
+    {
+      "id": 8,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptionadasd"
+    },
+    {
+      "id": 11921640,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptionasd"
+    },
+    {
+      "id": 15159526,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptionsda"
+    },
+    {
+      "id": 16896744,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptionasdasdas"
+    },
+    {
+      "id": 6669716,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 14357852,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Yo"
+    },
+    {
+      "id": 14645110,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 11927972,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 14836078,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "blhacakews"
+    },
+    {
+      "id": 14199825,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 22554589,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 16857174,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descripstion"
+    },
+    {
+      "id": 12860437,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Titles",
+      "descrp": "Description"
+    },
+    {
+      "id": 12321848,
+      "listId": 1,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Descriptions"
+    },
+    {
+      "id": 15718953,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Title",
+      "descrp": "Description"
+    },
+    {
+      "id": 7412374,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "TesTtiel",
+      "descrp": "TestTodo"
+    },
+    {
+      "id": 16507772,
+      "listId": 2,
+      "userId": "hhhhadjklsajkdlaskjd",
+      "title": "Workout",
+      "descrp": "Threadmill and Floor Exercises"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "date": "08/31/2016",
+      "time": "12:50pm",
+      "title": "Lambdify",
+      "msg": "Lambdify, a basic Todo web app!"
+    }
+  ]
+}
