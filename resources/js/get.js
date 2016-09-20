@@ -64,7 +64,7 @@
             var dataLength = parsedData.length;
             for (i = 0; i < dataLength; i++) {
                 var nex = data[i];
-                console.log(nex);
+    //            console.log(nex);
             }
             var fieldName = Object.keys(nex);
             var fieldLength = fieldName.length;
@@ -95,17 +95,25 @@
 
         function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames,
             datar, numb) {
+                var ranNumb = Math.floor((Math.random() * 3112231) + 5673512);
+                var ranNumb1 = Math.floor((Math.random() * ranNumb) + 633512);
+                var ranNumb2 = Math.floor((Math.random() * 31122) + ranNumb1);
+                var ranNumb3 = Math.floor((Math.random() * ranNumb1) + ranNumb2);
+                var ranNumb4 = Math.floor((Math.random() * ranNumb) + ranNumb3);
+                var ranNumb11 = Math.floor((Math.random() * 60) + 10);
             for (y = 0; y < lengthField; y++) {
                 var nexAroni = datar[y];
                 var todos = nexAroni.descrp;
                 var todoID = nexAroni.id;
                 var todoTitle = nexAroni.title;
-                var testyla = y;
-                console.log(nexAroni);
+                var testyla = y*ranNumb11;
+                var theadID = ranNumb;
+                var rannn = ranNumb4 + y;
+                var listNpos = "" + numb + "-" + y + "";
+               console.log(listNpos);
                 var to = nexAroni;
-                htmlOutput += "<td>" + y + "</td><td contenteditable='true'>" +
-                    todoTitle + "</td><td contenteditable='true'>" + todos +
-                    "</td><td><input class='btn btn-default' id='send' name='submit' onclick='POST()' type='submit' value='Create!'></td></tr>";
+                htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td contenteditable='true'>" + todoTitle + "</td><td contenteditable='true'>" + todos + "</td><td>" +
+                "<input class='btn btn-default' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-default' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
             }
             var list = document.createElement("li");
             var htmll = "<a>";
@@ -127,11 +135,11 @@
             aaa.className = "tablinks";
             htmll += aaa;
             htmll += "</a>";
-            creatTablez(yu, numb, htmlOutput, testyla);
+            creatTablez(yu, numb, htmlOutput, testyla, theadID);
         }
         var tableNam;
 
-        function creatTablez(namee, listid, iun, todoID) {
+        function creatTablez(namee, listid, iun, todoID, theadID) {
             var para = document.createElement("div");
             var htmll = "<table>";
             var node = document.createTextNode(htmll);
@@ -151,7 +159,7 @@
             htmll += "</table>";
             tableNam = aaa.id;
             iun.id = ranNum + 89 - 32;
-            var theadID = ranNum;
+            //var theadID = ranNum;
             aaa.innerHTML = "<tbody id='" + theadID + "'>" + iun + "</tbody>";
             var button = document.createElement("input");
             var buttonParent = document.getElementById(para.id);
@@ -171,6 +179,25 @@
             refresh = setTimeout(function() {
                 window.location.reload(true);
             }, timeoutPeriod);
+        }
+        
+        function deleteTodo(rowPosRaw1, tbodyID) {
+            var rowEnt = document.getElementById(tbodyID);
+            //(tbodyID);
+            
+            /*
+            for (var i = 0; i < rowEnt.length; i++) {
+                 var rowIndx = rowEnt[i].rowIndex;
+                console.log(rowIndx);
+            }
+            */
+            
+            console.log(rowPosRaw1);
+            
+            var rowPosRaw = String(rowPosRaw1);
+            var rowPosRef = rowPosRaw.substr(rowPosRaw.indexOf("-") + 1);
+            console.log(rowPosRaw1);
+            document.getElementById(rowPosRaw1).deleteRow(0);
         }
 
         function openListTab(eventType, dataNamez) {
@@ -372,7 +399,7 @@
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
             var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum + 6);
             var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
-            var newListName = document.getElementById("newListName").innerHTML;
+            var newListName = document.getElementById("newListName").value;
             console.log(newListName);
             var rLength = len;
             var userid = "hhhhadjklsajkdlaskjd";
@@ -392,7 +419,8 @@
             xhttp.open(reqMethod, link, async);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(stringifiedData);
-            createFirstTodoObject(rLength, userid);
+            //refresh(55555);
+            //createFirstTodoObject(rLength, userid);
         }
 
         function createFirstTodoObject(listIID, uid) {
