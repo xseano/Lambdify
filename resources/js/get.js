@@ -112,7 +112,7 @@
                 var listNpos = "" + numb + "-" + y + "";
                console.log(listNpos);
                 var to = nexAroni;
-                htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td contenteditable='true'>" + todoTitle + "</td><td contenteditable='true'>" + todos + "</td><td>" +
+                htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td>" + todoTitle + "</td><td>" + todos + "</td><td>" +
                 "<input class='btn btn-blue' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-red' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
             }
             var list = document.createElement("li");
@@ -123,7 +123,6 @@
             var ranNum1 = Math.floor((Math.random() * 31231) + 12312);
             var ranNum = String.fromCharCode(ranNum1);
             list.id = ranNum;
-            //list.className = "nav";
             var aaa = document.createElement("a");
             var text = document.createTextNode(dataNames);
             aaa.appendChild(text);
@@ -267,10 +266,12 @@
             descrpCell.id = ranNum3;
             var optionCell = rowCreate.insertCell(3);
             optionCell.id = ranNum3;
+            /*
             document.getElementById(titleCell.id).setAttribute("contenteditable",
                 "true");
             document.getElementById(descrpCell.id).setAttribute("contenteditable",
                 "true");
+            */
             idCell.innerHTML = childNodeLengthPlus;
             titleCell.innerHTML = "Title";
             descrpCell.innerHTML = "Description";
@@ -412,12 +413,12 @@
         
 
         function createNewTodoList() {
-            var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
+            var ranNum = Math.floor((Math.random() * 3112231) + 5673512);
             var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum + 6);
             var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
             var newListName = document.getElementById("newListName").value;
             console.log(newListName);
-            var rLength = len;
+            //var rLength = len;
             var userid = "hhhhadjklsajkdlaskjd";
             var xhttp = new XMLHttpRequest();
             var link = "http://localhost:3000/lists";
@@ -430,13 +431,12 @@
             };
             var testJ = JSON.stringify(testArray);
             var jointest = JSON.parse(testJ);
-            var listNameFormat = listName;
             var stringifiedData = JSON.stringify(testArray);
             xhttp.open(reqMethod, link, async);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(stringifiedData);
             //refresh(55555);
-            //createFirstTodoObject(rLength, userid);
+            createFirstTodoObject(ranNum2, userid);
         }
 
         function createFirstTodoObject(listIID, uid) {
@@ -450,8 +450,8 @@
                 id: 1,
                 listId: listid,
                 userId: uid,
-                title: "Lambdify",
-                descrp: "First Todo Description"
+                title: "Lambdify Title Test",
+                descrp: "Lambdify Description Test"
             };
             var testJ = JSON.stringify(testArray);
             var jointest = JSON.parse(testJ);
