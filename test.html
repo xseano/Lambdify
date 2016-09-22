@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="IE=edge" http-equiv="X-UA-Compatible">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<title>
+			Lambdify Test Dash
+		</title>
+		<link href="resources/img/header.png" rel="image_src">
+		<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<link href=
+		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
+		rel="stylesheet">
+		<link href="resources/css/custom.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js">
+		</script> 
+		<script src="resources/js/holder.js">
+		</script> 
+		<script src=
+		"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+		</script> 
+		<script src="resources/js/footable.js">
+		</script> 
+		<script src="resources/js/get.js">
+		</script>
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-target=".navbar-collapse"
+				data-toggle="collapse" type="button"><span class=
+				"icon-bar"></span> <span class="icon-bar"></span> <span class=
+				"icon-bar"></span></button> <a class="navbar-brand"><img class=
+				"center-block img-responsive" src="resources/img/node.png"
+				style="width: 150px; margin-top: -10px;"></a>
+			</div>
+
+			<div class="navbar-collapse collapse navbar-right scroll-me">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="/index.html">Home</a>
+					</li>
+
+					<li>
+						<a href="/newsarea.html">News</a>
+					</li>
+
+					<li class="dropdown">
+						<a aria-expanded="false" aria-haspopup="true" class=
+						"dropdown-toggle" data-toggle="dropdown" href="#" role=
+						"button">Account</a>
+						<ul class="dropdown-menu" style=
+						"background-color: #282924;">
+							<li>
+								<a href="/register.html">Create an account</a>
+							</li>
+
+							<li>
+								<a href="/manage.html">Manage Account</a>
+							</li>
+
+							<li class="divider" role="separator">
+							</li>
+
+							<li>
+								<a href="/accountsupp.html">Account Support</a>
+							</li>
+
+							<li>
+								<a href="/recover.html">Forgot Password</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="/comingsoon.html">More Information</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="header container">
+			<div class="divider">
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<a><img class="center-block img-responsive" src=
+					"resources/img/header.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div align="center" class="container">
+			<div align="center" class="col-md-12 test">
+				<div class="row">
+					<div class="login-box well">
+						<div class="col-md-6 test" style="float: left;">
+							<div class="panel-heading">
+								Add new ToDo List!
+							</div>
+
+							<div class="panel-body">
+								<center>
+									<form>
+										<label>New list name:</label>
+										<input class="form-control" id=
+										"newListName" name="newListName"
+										placeholder="Tuesday List" type=
+										"text"><br>
+									</form>
+								</center>
+							</div>
+
+							<div class="form-group">
+								<input class="btn btn-success btn-block" id=
+								"newListaroni" name="newListaroni" onclick=
+								"createNewTodoList()" type="submit" value=
+								"Create!">
+							</div>
+
+							<div class="form-group">
+								<a class="text-sm pull-left" href=
+								"/recover.html">Forgot Password?</a> <a class=
+								"text-sm pull-right" href=
+								"/register.html">Create a New Account</a>
+							</div>
+						</div>
+
+						<div class="col-md-6 test" style="float: right;">
+							<div class="panel-heading">
+								Your Todo Lists:
+							</div>
+
+							<div class="panel-body" id="l">
+								<center>
+									<ul class="nav nav-tabs" id="tabHTML">
+									</ul>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="divider">
+		</div>
+
+		<footer>
+			<div class="container">
+				<p>
+					&copy; 2016 Sean Oberoi. Please view MIT License below.
+				</p>
+
+				<p>
+					<a href="[githubrepodocumentation]">Documentation</a>
+					&middot; <a href="[githubrepolicense]">MIT License</a>
+					&middot; <a href="[githubRepo]">Source Code</a> &middot;
+					<a href="sean.o@mac.com">Contact</a>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

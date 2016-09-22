@@ -74,7 +74,7 @@
             var y;
             var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
             var ranNummy = Math.floor((Math.random() * 6666) + 88712)
-            var htmlOutput = "<tr id='" + ranNum2 + "'>";
+            var htmlOutput = "<thead id='" + ranNum2 + "'>";
             var todoListHeader = Object.keys(fieldName);
             for (k = 0; k < fieldLength; k++) {
                 var fieldNamRaw = fieldName[k];
@@ -87,7 +87,7 @@
                 }
             }
             htmlOutput += "<th>Options<\/th>";
-            htmlOutput += "<\/thead></tr>";
+            htmlOutput += "</thead>";
             var num = 0;
             createTabz(nex, dataLength, nex, htmlOutput, fieldnam, dataNames, data,
                 numb);
@@ -113,7 +113,7 @@
                console.log(listNpos);
                 var to = nexAroni;
                 htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td contenteditable='true'>" + todoTitle + "</td><td contenteditable='true'>" + todos + "</td><td>" +
-                "<input class='btn btn-default' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-default' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
+                "<input class='btn btn-blue' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-red' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
             }
             var list = document.createElement("li");
             var htmll = "<a>";
@@ -123,6 +123,7 @@
             var ranNum1 = Math.floor((Math.random() * 31231) + 12312);
             var ranNum = String.fromCharCode(ranNum1);
             list.id = ranNum;
+            //list.className = "nav";
             var aaa = document.createElement("a");
             var text = document.createTextNode(dataNames);
             aaa.appendChild(text);
@@ -132,7 +133,7 @@
             var yu = dataNames;
             var listidd = dataNames.id;
             document.getElementById(aaa.id).setAttribute("onclick", "openListTab(event, '" + yu + "')");
-            aaa.className = "tablinks";
+            aaa.className = "nav";
             htmll += aaa;
             htmll += "</a>";
             creatTablez(yu, numb, htmlOutput, testyla, theadID);
@@ -140,21 +141,32 @@
         var tableNam;
 
         function creatTablez(namee, listid, iun, todoID, theadID) {
+           
+            
             var para = document.createElement("div");
             var htmll = "<table>";
             var node = document.createTextNode(htmll);
             var element = document.getElementById("l");
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512);
-            element.appendChild(para);
+            var newDiv = document.createElement("div");
+            
+            newDiv.appendChild(para);
+            newDiv.id = "" + namee + "Parent";
+            newDiv.className = "";
+            element.appendChild(newDiv);
+            
             para.id = namee;
-            para.className = "tabcontent";
+            para.className = "tab-content";
+            
+            
             var aaa = document.createElement("table");
             var node123 = document.createTextNode("");
             aaa.appendChild(node123);
+            
             var element2 = document.getElementById(para.id);
             element2.appendChild(aaa);
             aaa.id = namee + ranNum;
-            aaa.className = "table table-striped";
+            aaa.className = "table";
             htmll += aaa;
             htmll += "</table>";
             tableNam = aaa.id;
@@ -166,13 +178,15 @@
             buttonParent.appendChild(button);
             var buttonPlus = document.createTextNode("Add new todo");
             button.appendChild(buttonPlus);
-            button.className = "btn btn-default";
+            button.className = "btn btn-green";
             button.id = "addRowButton" + ranNum;
             document.getElementById(button.id).setAttribute("onclick",
                 "createTableRow(" + theadID + ", " + todoID + ", " + namee + ", " +
                 listid + ")");
             document.getElementById(button.id).setAttribute("type", "submit");
             document.getElementById(button.id).setAttribute("value", "Add New Todo");
+            document.getElementById(aaa.id).setAttribute("cellspacing", "0");
+            document.getElementById(aaa.id).setAttribute("width", "100%");
         }
 
         function refresh(timeoutPeriod) {
@@ -202,16 +216,18 @@
 
         function openListTab(eventType, dataNamez) {
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
+            tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tablinks");
+            tablinks = document.getElementsByClassName("nav");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].style = ("background-color: #fff;", "");
             }
             document.getElementById(dataNamez).style.display = "block";
             eventType.currentTarget.className += " active";
+            eventType.currentTarget.style = "background-color: #fff;";
         }
 
         function switchFieldName(fn) {

@@ -1,18 +1,22 @@
 body {
 	background-position: center top;
 	background-repeat: no-repeat;
-	background-color: #000;
+	background-color: #1D1E1A;
 	padding-top: 50px;
 	font-family: "Lato",sans-serif;
+	
 }
 
-
 .header {
-	padding-top: 0px;
+	padding-top: 0;
 	padding-bottom: 75px;
 	text-align: center;
 	background-size: cover;
-	height: 0px;
+	height: 0;
+}
+
+.outlinee {
+	box-shadow: 0 0 0px #6a6d5f;
 }
 
 .buttommulti {
@@ -31,15 +35,19 @@ body {
 	background-color: #fff;
 	padding-bottom: 25px;
 }
+.test {
+	box-shadow: 0 0 10px #6a6d5f;
+	background-color: #282924;
+	padding-bottom: 25px;
+}
 
 td {
-	border: 1px solid #dddddd;
 	text-align: left;
 	padding: 8px;
 }
 
 th {
-	border: 1px solid #dddddd;
+	
 	text-align: left;
 	padding: 8px;
 }
@@ -58,6 +66,17 @@ ul.tab li {
 	float: left;
 }
 
+.col-md-8,.col-md-10,.col-md-3 {
+	
+}
+
+.col-md-5 {
+	
+}
+
+.col-md-6 {
+	
+}
 ul.tab li a {
 	display: inline-block;
 	color: #000;
@@ -68,18 +87,519 @@ ul.tab li a {
 	font-size: 17px;
 }
 
-
 ul.tab li a:hover {
 	background-color: #ddd;
 }
 
 ul.tab li a:focus,.active {
-	background-color: #ccc;
+	background-color: #fff;
 }
 
-.tabcontent {
+.tab-content {
 	display: none;
-	padding: 6px 12px;
-	border: 1px solid #ccc;
-	border-top: none;
+	
 }
+
+html {
+	font-style: normal;
+}
+
+.server-time {
+	color: #9F9F9F;
+	font-size: 11px;
+}
+
+.content-black {
+	background-color: #000;
+	color: #AFAFAF;
+}
+
+.content-orange {
+	background-color: #ff9919;
+	color: #000;
+}
+
+.featurette-heading .text-muted {
+	color: #fff;
+}
+
+.content-header {
+	background: url(../img/header.jpg) no-repeat center 30px;
+}
+
+
+.progress {
+	margin-bottom: 0;
+}
+
+.ranking,.table,th {
+	color: #F92672;
+	background-color: #282924;
+}
+
+.nav > .active a {
+	color: #000 !important;
+	background: #fff;
+}
+
+.table thead th {
+	background: #fff;
+	color: #000;
+}
+
+.panel-body > p {
+	color: #333;
+}
+
+.jumbotron {
+	background-color: #000;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.jumbotron > p,.jumbotron > h1 {
+	color: #fff;
+}
+
+.table th,.table td,.table th thead {
+	border-top: none !important;
+}
+
+article {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+article h3,article p {
+	color: #fff;
+}
+
+body {
+	padding-bottom: 40px;
+	color: #5a5a5a;
+	background-color: #1D1E1A;
+}
+
+footer {
+	padding-top: 30px;
+	color: #fff;
+}
+
+.header-links a {
+	float: left|right;
+	display: inline-block;
+}
+
+a.play-now {
+	display: block !important;
+	width: 242px;
+	height: 83px;
+	margin-top: -14px;
+	background: url(../img/btn/play.png);
+	background-position: -0 -0;
+}
+
+a.play-now:hover {
+	background: url(../img/btn/play.png);
+	background-position: -0 -83px;
+}
+
+a.reg-now {
+	display: block !important;
+	width: 387px;
+	height: 59px;
+	background: url(../img/btn/register.png);
+	background-position: -0 -0;
+}
+
+a.reg-now:hover {
+	background: url(../img/btn/register.png);
+	background-position: -0 -59px;
+}
+
+
+
+a {
+	color: #E6DB74;
+	
+}
+
+a:hover {
+	color: #AE81FF;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.marketing h2 {
+	font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+/* Featurettes
+------------------------- */
+.dob {
+	background-color: #000;
+}
+
+.dbo {
+	background-color: #000;
+}
+
+.divider {
+	margin: 80px 0;
+/* Space out the Bootstrap <hr> more */
+}
+
+.featurette-divider {
+	display: block;
+	height: 80px;
+	color: #333;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+	/* Navbar positioning foo */
+	.navbar-wrapper {
+		margin-top: 20px;
+	}
+
+	.navbar-wrapper .container {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+
+	.navbar-wrapper .navbar {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	/* The navbar becomes detached from the top, so we round the corners */
+	.navbar-wrapper .navbar {
+		border-radius: 4px;
+	}
+
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+		margin-bottom: 20px;
+		font-size: 21px;
+		line-height: 1.4;
+	}
+
+	.featurette-heading {
+		font-size: 50px;
+	}
+}
+
+@media (min-width: 992px) {
+	.featurette-heading {
+		margin-top: 120px;
+	}
+}
+
+.navbar-default {
+	background: #000 !important;
+	border-color: #000;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus {
+	color: #fff;
+}
+
+.navbar-default .navbar-text {
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > li > a:focus {
+	background-color: #ff9919;
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:hover,.navbar-default .navbar-nav > .active > a:focus {
+	color: #fff;
+	background-color: #ff9919;
+}
+
+.navbar-default .navbar-nav > .open > a,.navbar-default .navbar-nav > .open > a:hover,.navbar-default .navbar-nav > .open > a:focus {
+	color: #fff;
+	background-color: #2E2E2E;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #2E2E2E;
+}
+
+.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus {
+	background-color: #2E2E2E;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-collapse,.navbar-default .navbar-form {
+	border-color: #fff;
+}
+
+.navbar-default .navbar-link {
+	color: #fff;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.navbar-default .navbar-link:hover {
+	color: #fff;
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #fff;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #fff;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a,.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fff;
+		background-color: #ff9919;
+	}
+}
+
+.dropdown-header {
+	color: #9D9D9D;
+}
+
+.dropdown-menu>li>a {
+	color: #fff;
+}
+
+.dropdown-menu .divider {
+	background-color: #3D3C3C;
+}
+
+.navbar-default .navbar-nav>.open>a {
+	background-image: none;
+}
+
+.charitems li {
+	background: none;
+	list-style: none;
+	margin-left: -20px;
+}
+
+.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover {
+	color: #2D1D1D !important;
+	background-color: #ECECEC;
+}
+
+.nolink,.nolink:hover {
+	color: inherit;
+}
+
+@media (min-width: 1200px) {
+	.flash_container {
+		height: 499px;
+	}
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+	.flash_container {
+		height: 410px;
+	}
+}
+
+/* we don't need all these presets 
+			 because you are showing an image 
+			 instead of the flash object 
+		*/
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+	
+}
+
+.thumbnail-large,.thumbnail-small {
+	margin-bottom: 25px;
+}
+
+.thumbnail-large .thumbnail-img,.thumbnail-small .thumbnail-img {
+	width: 100%;
+}
+
+.thumbnail-large>a img,.thumbnail-small>a img {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.pagination>li>a,.pagination>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	color: #ff9919;
+	text-decoration: none;
+	background: none;
+	border: none;
+}
+
+.pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover,.pagination>.active>span,.pagination>.active>span:focus,.pagination>.active>span:hover {
+	z-index: 2;
+	color: #fff;
+	cursor: default;
+	background: none;
+}
+
+.pagination>li>a:focus,.pagination>li>a:hover,.pagination>li>span:focus,.pagination>li>span:hover {
+	color: #FFF;
+	background: none;
+	border: none;
+}
+
+.pagination>.disabled>a,.pagination>.disabled>a:focus,.pagination>.disabled>a:hover,.pagination>.disabled>span,.pagination>.disabled>span:focus,.pagination>.disabled>span:hover {
+	color: #777;
+	cursor: not-allowed;
+	border: none;
+	background: none;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+.well{
+	background: none;
+	border: none;
+color:#FFF;
+box-shadow: none;
+}
+
+.well.login-box {
+	/*width:400px; */
+	margin:0 auto;
+}
+.well.login-box legend {
+font-size:26px;
+text-align:center;
+font-weight:300;
+}
+.well.login-box label {
+font-weight:300;
+font-size:16px;
+color: #F92672;
+
+}
+
+
+
+.well.welcome-text{
+	font-size:21px;
+}
+
+/* Notifications */
+
+.notification{
+	position:fixed;
+	top: 20px;
+	right:0;
+	background-color:#FF4136;
+	padding: 20px;
+	color: #fff;
+	font-size:21px;
+	display:none;
+}
+.notification-success{
+background-color:#3D9970;
+}
+
+.notification-show{
+	display:block!important;
+}
+
+.btn-default {
+	color: #333;
+	background-color: #f9f9f9;
+	border-color: #ccc;
+	border: 1px solid;
+	text-align: center;
+	cursor: pointer;
+	color: #5e5e5e;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #f9f9f9)), #f9f9f9;
+	background: -moz-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+	background: -webkit-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+	background: linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+	border-color: #c3c3c3 #c3c3c3 #bebebe;
+	-moz-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+	box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+}
+
+.btn-blue {
+	color: #000;
+	background-color: #66D9EF;
+}
+
+.btn-green {
+	color: #000;
+	background-color: #00cc00;
+	}
+
+.btn-red {
+	color: #000;
+	background-color: #cc0000;
+	}
