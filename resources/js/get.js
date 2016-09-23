@@ -11,8 +11,9 @@
                 var dataLength = data.length;
                 for (var i = 0; i < dataLength; i++) {
                     var dataNamez = data[i].name;
-                    ii = i + 1;
-                    getTodoItems(ii, dataNamez, dataLength);
+                    var dataIdz = data[i].id;
+                    console.log(dataIdz);
+                    getTodoItems(dataIdz, dataNamez, dataLength);
                 }
             }
         };
@@ -73,7 +74,7 @@
             var k;
             var y;
             var ranNum2 = Math.floor((Math.random() * 31223431) + 123234212);
-            var ranNummy = Math.floor((Math.random() * 6666) + 88712)
+            var ranNummy = Math.floor((Math.random() * 6666) + 88712);
             var htmlOutput = "<thead id='" + ranNum2 + "'>";
             var todoListHeader = Object.keys(fieldName);
             for (k = 0; k < fieldLength; k++) {
@@ -93,14 +94,14 @@
                 numb);
         }
 
-        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames,
-            datar, numb) {
+        function createTabz(chos, lengthField, nex, htmlOutput, fieldnam, dataNames, datar, numb) {
                 var ranNumb = Math.floor((Math.random() * 3112231) + 5673512);
                 var ranNumb1 = Math.floor((Math.random() * ranNumb) + 633512);
                 var ranNumb2 = Math.floor((Math.random() * 31122) + ranNumb1);
                 var ranNumb3 = Math.floor((Math.random() * ranNumb1) + ranNumb2);
                 var ranNumb4 = Math.floor((Math.random() * ranNumb) + ranNumb3);
                 var ranNumb11 = Math.floor((Math.random() * 60) + 10);
+                htmlOutput += "<tbody id='" + ranNumb3 + "'>";
             for (y = 0; y < lengthField; y++) {
                 var nexAroni = datar[y];
                 var todos = nexAroni.descrp;
@@ -115,6 +116,7 @@
                 htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td>" + todoTitle + "</td><td>" + todos + "</td><td>" +
                 "<input class='btn btn-blue' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-red' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
             }
+            htmlOutput += "</tbody>"
             var list = document.createElement("li");
             var htmll = "<a>";
             var addStuff = document.createTextNode(htmll);
@@ -124,7 +126,9 @@
             var ranNum = String.fromCharCode(ranNum1);
             list.id = ranNum;
             var aaa = document.createElement("a");
-            var text = document.createTextNode(dataNames);
+            var text1 = dataNames.replace(/Λ/g, " ");
+            var text = document.createTextNode(text1);
+            //console.log(text);
             aaa.appendChild(text);
             var somethingg = document.getElementById(list.id);
             somethingg.appendChild(aaa);
@@ -135,7 +139,7 @@
             aaa.className = "nav";
             htmll += aaa;
             htmll += "</a>";
-            creatTablez(yu, numb, htmlOutput, testyla, theadID);
+            creatTablez(yu, numb, htmlOutput, testyla, ranNumb3);
         }
         var tableNam;
 
@@ -151,7 +155,7 @@
             
             newDiv.appendChild(para);
             newDiv.id = "" + namee + "Parent";
-            newDiv.className = "";
+            //newDiv.className = "";
             element.appendChild(newDiv);
             
             para.id = namee;
@@ -166,12 +170,14 @@
             element2.appendChild(aaa);
             aaa.id = namee + ranNum;
             aaa.className = "table";
-            htmll += aaa;
-            htmll += "</table>";
+            
             tableNam = aaa.id;
             iun.id = ranNum + 89 - 32;
             //var theadID = ranNum;
-            aaa.innerHTML = "<tbody id='" + theadID + "'>" + iun + "</tbody>";
+            aaa.innerHTML = iun;
+            //"<tbody id='" + theadID + "'>" + iun + "</tbody>";
+            htmll += aaa;
+            htmll += "</table>";
             var button = document.createElement("input");
             var buttonParent = document.getElementById(para.id);
             buttonParent.appendChild(button);
@@ -179,8 +185,10 @@
             button.appendChild(buttonPlus);
             button.className = "btn btn-green";
             button.id = "addRowButton" + ranNum;
+            var text1 = namee.replace(/-/g, " ");
+            console.log(text1);
             document.getElementById(button.id).setAttribute("onclick",
-                "createTableRow(" + theadID + ", " + todoID + ", " + namee + ", " +
+                "createTableRow(" + theadID + ", " + todoID + ", " + text1 + ", " +
                 listid + ")");
             document.getElementById(button.id).setAttribute("type", "submit");
             document.getElementById(button.id).setAttribute("value", "Add New Todo");
@@ -248,13 +256,19 @@
         }
 
         function createTableRow(tableID, todoID, divID, listID) {
+            var divIDraw = divID;
+            console.log(divIDraw);
+            var text1 = (divIDraw.id).replace(/ /g, "-");
+             console.log(text1);
+            var testva = text1;
             var table = document.getElementById(tableID);
             var ranNum = Math.floor((Math.random() * 332231) + 566612);
             var ranNum2 = Math.floor((Math.random() * 345345) + 576512);
             var ranNum3 = Math.floor((Math.random() * ranNum) + ranNum2);
             var childNodes = table.childNodes;
             var childNodeLength = table.childNodes.length;
-            var childNodeLengthPlus = childNodeLength++ - 1;
+            var childNodeLengthPlus = childNodeLength++;
+            console.log(childNodeLength);
             var rowCreate = document.createElement("tr");
             var rowParent = document.getElementById(tableID);
             rowParent.appendChild(rowCreate);
@@ -275,9 +289,9 @@
             idCell.innerHTML = childNodeLengthPlus;
             titleCell.innerHTML = "Title";
             descrpCell.innerHTML = "Description";
-            var testva = divID;
+            
             var listys = listID;
-            console.log(listID);
+            console.log(testva.id);
             optionCell.innerHTML =
                 "<input class='btn btn-default' id='send' name='submit' onclick='sendStuff(" +
                 testva.id + ", " + idCell.id + ", " + titleCell.id + ", " + descrpCell.id +
@@ -348,7 +362,7 @@
         }
 
         function sendStuff(tableid, id, title, desc, listidd) {
-            var listName = tableid.id;
+            //var listName = tableid.id;
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512) + id;
             var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum + 6);
             var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
@@ -362,8 +376,9 @@
             console.log(todoDesc);
             console.log(listIdt);
             var userid = "hhhhadjklsajkdlaskjd";
-            if ((listName == "") || (todoTitle == "") || ((todoTitle) == "" && (
-                listName == ""))) {} else {
+            if (todoTitle == "") {
+                
+            } else {
                 var xhttp = new XMLHttpRequest();
                 var link = "http://localhost:3000/lists/" + listIdt + "/items";
                 var reqMethod = "POST";
@@ -377,7 +392,7 @@
                 };
                 var testJ = JSON.stringify(testArray);
                 var jointest = JSON.parse(testJ);
-                var listNameFormat = listName;
+                //var listNameFormat = listName;
                 var stringifiedData = JSON.stringify(testArray);
                 xhttp.open(reqMethod, link, async);
                 xhttp.setRequestHeader("Content-type", "application/json");
@@ -404,19 +419,26 @@
                     var data = parsData;
                     var dataLength = data.length;
                     console.log(dataLength);
+                    createNewTodoList(dataLength);
                 }
             };
             xhttp.open(reqMethod, linkAroni, asyncAroni);
             xhttp.send();
-            createNewTodoList(dataLength);
+            //createNewTodoList(dataLength);
         }
         
+        
+        
 
-        function createNewTodoList() {
+        function createNewTodoList(listLen) {
             var ranNum = Math.floor((Math.random() * 3112231) + 5673512);
             var ranNum1 = Math.floor((Math.random() * ranNum) + ranNum + 6);
             var ranNum2 = Math.floor((Math.random() * ranNum) + ranNum1);
-            var newListName = document.getElementById("newListName").value;
+            var listN = listLen+=1;
+            var newListName1 = document.getElementById("newListName").value;
+            var newListName = newListName1.split(' ').join('Λ');
+             
+            
             console.log(newListName);
             //var rLength = len;
             var userid = "hhhhadjklsajkdlaskjd";
@@ -425,7 +447,7 @@
             var reqMethod = "POST";
             var async = true;
             var testArray = {
-                id: ranNum2,
+                id: listN,
                 name: newListName,
                 userId: userid
             };
@@ -436,18 +458,42 @@
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(stringifiedData);
             //refresh(55555);
-            createFirstTodoObject(ranNum2, userid);
+            //createFirstTodoObject(listN, userid);
+            getObjectsInListLength(listN, userid);
+        }
+        
+        function getObjectsInListLength(listId, userID) {
+            var xhttp = new XMLHttpRequest();
+            var listid = listId;
+            var reqMethod = "GET";
+            var linkAroni = "http://localhost:3000/items";
+            var asyncAroni = true;
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    var parsData = JSON.parse(this.responseText);
+                    var unParsData = this.responseText;
+                    var da = parsData;
+                    var data = parsData;
+                    var dataLength = data.length;
+                    console.log(dataLength);
+                    createFirstTodoObject(listid, userID, dataLength);
+                }
+            };
+            xhttp.open(reqMethod, linkAroni, asyncAroni);
+            xhttp.send();
+            //createNewTodoList(dataLength);
         }
 
-        function createFirstTodoObject(listIID, uid) {
+        function createFirstTodoObject(listIID, uid, objectLengths) {
             var xhttp = new XMLHttpRequest();
             var listid = listIID;
             var userid = uid;
+            var nextObject = objectLengths += 1;
             var link = "http://localhost:3000/lists/" + listid + "/items";
             var reqMethod = "POST";
             var async = true;
             var testArray = {
-                id: 1,
+                id: nextObject,
                 listId: listid,
                 userId: uid,
                 title: "Lambdify Title Test",
@@ -455,7 +501,7 @@
             };
             var testJ = JSON.stringify(testArray);
             var jointest = JSON.parse(testJ);
-            var listNameFormat = listName;
+            //var listNameFormat = listName;
             var stringifiedData = JSON.stringify(testArray);
             xhttp.open(reqMethod, link, async);
             xhttp.setRequestHeader("Content-type", "application/json");
