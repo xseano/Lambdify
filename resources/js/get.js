@@ -113,8 +113,8 @@
                 var listNpos = "" + numb + "-" + y + "";
                console.log(listNpos);
                 var to = nexAroni;
-                htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td>" + todoTitle + "</td><td>" + todos + "</td><td>" +
-                "<input class='btn btn-blue' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-red' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
+                //htmlOutput += "<tr id='" + rannn +"'><td>" + y + "</td><td>" + todoTitle + "</td><td>" + todos + "</td><td>" + "<input class='btn btn-blue' id='editTodo' name='editTodo' onclick='editTodo()' type='submit' value='Edit'>     <input class='btn btn-red' id='deleteTodo' name='deleteTodo' onclick='deleteTodo(" + rannn + ", " + theadID + ")' type='submit' value='Delete'></td></tr>";
+                htmlOutput += "<tr id='" + rannn +"'><td style='color: #66ffff;'>" + y + "</td><td style='color: #ff6600;'>" + todoTitle + "</td><td style='color: #00cc66;'>" + todos + "</td><td>" + "<ul class=dropdown><a aria-expanded=false aria-haspopup=true class=dropdown-toggle data-toggle=dropdown href=# role=button>Options</a><ul class=dropdown-menu style=background-color:#282924><li><a onclick=editTodo() style=color:#006666>Edit</a><li><a onclick=deleteTodo() style=color:#c00>Delete</a></ul>";
             }
             htmlOutput += "</tbody>"
             var list = document.createElement("li");
@@ -183,7 +183,7 @@
             buttonParent.appendChild(button);
             var buttonPlus = document.createTextNode("Add new todo");
             button.appendChild(buttonPlus);
-            button.className = "btn btn-green";
+            button.className = "btn btn-default btn-block";
             button.id = "addRowButton" + ranNum;
             var text1 = namee.replace(/-/g, " ");
             console.log(text1);
@@ -397,11 +397,13 @@
                 xhttp.open(reqMethod, link, async);
                 xhttp.setRequestHeader("Content-type", "application/json");
                 xhttp.send(stringifiedData);
+                /*
                 document.getElementById("success").className = "alert alert-success";
                 document.getElementById("send").setAttribute("type", "button");
                 document.getElementById('success').innerHTML =
                     "<strong>Success!</strong> You added a new todo with the title: " +
                     todoTitle + " and description: " + todoDesc + "!";
+                    */
             }
         }
 

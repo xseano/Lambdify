@@ -133,7 +133,7 @@ html {
 }
 
 .ranking,.table,th {
-	color: #F92672;
+	/*color: #00cc66;*/
 	background-color: #282924;
 }
 
@@ -570,7 +570,7 @@ background-color:#3D9970;
 
 .btn-default {
 	color: #333;
-	background-color: #f9f9f9;
+	background-color: #d9d9d9;
 	border-color: #ccc;
 	border: 1px solid;
 	text-align: center;
